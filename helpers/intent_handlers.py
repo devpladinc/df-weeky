@@ -1,7 +1,8 @@
 from flask import Flask, request
 import os
 import sys
-
+import random
+import spiels
 
 def check_intent(action):
     # take query and get action key as toggle
@@ -12,9 +13,8 @@ def check_intent(action):
     return intent_dict[action]()
     
 def send_greetings():
-    print('send greetings')
     payload = {
-        "fulfillmentText": 'This is from the replit webhook',
+        "fulfillmentText": random.choice(spiels.greetings),
         "source": 'webhook'
     }
     return payload

@@ -14,9 +14,8 @@ def webhook():
   query_result = req.get('queryResult')
   action = query_result.get('action')
   
-  print(query_result)
+  # print(query_result)
   spiel =  handler.check_intent(action)
-  print('PAYLOAD:', spiel)
   return spiel
    
 if __name__ == '__main__':
