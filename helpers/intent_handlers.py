@@ -13,6 +13,7 @@ def check_intent(action):
     return
     
 def send_greetings():
+    print('here')
     return {
         "fulfillmentText": 'Greetings! from function',
         "source": 'webhook'
