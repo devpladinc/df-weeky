@@ -13,8 +13,9 @@ def check_intent(action):
     return
     
 def send_greetings():
-    print('here')
-    return {
+    payload = {
         "fulfillmentText": 'Greetings! from function',
         "source": 'webhook'
     }
+
+    return payload

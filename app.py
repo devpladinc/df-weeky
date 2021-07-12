@@ -15,13 +15,8 @@ def webhook():
   action = query_result.get('action')
   
   print(query_result)
-  return handler.check_intent(action)
-
-  
-  # return {
-  #       "fulfillmentText": 'This is from the heroku webhook',
-  #       "source": 'webhook'
-  #   }
+  spiel =  handler.check_intent(action)
+  return spiel
    
 if __name__ == '__main__':
   # app.run(host='0.0.0.0', port=8080)
