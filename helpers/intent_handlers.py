@@ -11,10 +11,11 @@ def check_intent(action):
 
     intent_dict[action]()
     return
-    
+
 def send_greetings():
+    print('send greetings')
     payload = {
-        "fulfillmentText": 'Greetings! from function',
+        "fulfillmentText": 'This is from the replit webhook',
         "source": 'webhook'
     }
 

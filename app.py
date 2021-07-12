@@ -16,6 +16,7 @@ def webhook():
   
   print(query_result)
   spiel =  handler.check_intent(action)
+  print('PAYLOAD:', spiel)
   return spiel
    
 if __name__ == '__main__':
