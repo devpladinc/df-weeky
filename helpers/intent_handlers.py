@@ -10,7 +10,8 @@ def check_intent(action, params=''):
     # take query and get action key
     intent_dict = {
         'input.welcome' : send_greetings,
-        'check.topic' : select_topic
+        'check.topic' : select_topic,
+        'check.topic.ds' : 
     }
     try:
         # log.info
@@ -37,11 +38,25 @@ def select_topic(topic):
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
         "source": 'webhook'
     }
-
     return payload
 
-def save_convo_trail():
-    # save all intents passed
-    pass
+
+def extract_ds_menus(topic):
+    # # topic extracted from df queryresult
+    # if len(topic) > 1:
+    #     topic_str = " ".join(topic)
+    # else:
+    #     topic_str = topic[0]
+
+    print('DS MENUS here')
+    print('data science topic:', topic)
+    
+    payload = {
+        "fulfillmentText": 'payload from data science',
+        "source": 'webhook'
+    }
+    return payload
+
+
 
    
