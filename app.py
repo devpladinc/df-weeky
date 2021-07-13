@@ -19,10 +19,12 @@ def webhook():
     # custom intents
     intent_name = query_response.get('intent')  
     params = query_response.get('parameters')
-    action = intent_name['display_name']
-    
-  print("action: ",action)
+    action = intent_name.get('displayName')
+
   print("query: ", query_response)
+  print("intent: ", intent_name)
+  print("action: ",action)
+  
   spiel =  handler.check_intent(action)
   return spiel
    
