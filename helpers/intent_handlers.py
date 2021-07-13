@@ -4,8 +4,6 @@ import sys
 import random
 import spiels
 import json
-
-import convo
 from logs.utils import logging as log
 
 def check_intent(action, params=''):
