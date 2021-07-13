@@ -28,7 +28,7 @@ def send_greetings():
 
 def select_topic(topic):
     payload = {
-        "fulfillmentText": str(random.choice(spiels.topics)).replace("{}", topic),
+        "fulfillmentText": str(random.choice(spiels.topics)).replace("<topic>", topic),
         "source": 'webhook'
     }
     return payload    
