@@ -32,7 +32,8 @@ def webhook():
   if action == 'check.topc.ds':
     # params = params.get('t-datascience')
     params = params['t-datascience']  
-
+    print("params after:", params)
+    
   spiel =  handler.check_intent(action, params)
   return spiel
    
