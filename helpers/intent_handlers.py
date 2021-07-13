@@ -43,7 +43,8 @@ def select_topic(topic):
 
 
 def extract_ds_menus(topic):
-    # print('data science topic:', topic)
+    print("get menu topic first", topic)
+    
     if len(topic) > 1:
         topic_str = " ".join(topic)
     else:
