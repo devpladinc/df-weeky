@@ -11,11 +11,18 @@ def server_healthcheck():
 @app.route('/webhook', methods=['POST'])
 def webhook():
   req = request.get_json(silent=True, force=True)
-  query = req.get('queryResult')
-  action = query.get('action')
-  
+  query_response = req.get('queryResult')
+  try:
+    # intents will high confidence sentiment has action in payload
+    action = query_response.get('action')
+  except Exception as e:
+    # custom intents
+    intent_name = query_response.get('intent')  
+    params = query_response.get('parameters')
+    action = intent_name['display_name']
+    
   print("action: ",action)
-  print("query: ", query)
+  print("query: ", query_response)
   spiel =  handler.check_intent(action)
   return spiel
    

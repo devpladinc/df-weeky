@@ -4,13 +4,12 @@ import sys
 import random
 import spiels
 
-def check_intent(action):
-    # take query and get action key as toggle
+def check_intent(action, params={}):
+    # take query and get action key
     intent_dict = {
         'input.welcome' : send_greetings,
         'check.topic' : select_topic
     }
-
     return intent_dict[action]()
     
 def send_greetings():
