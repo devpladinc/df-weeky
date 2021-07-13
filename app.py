@@ -21,17 +21,12 @@ def webhook():
     intent_name = query_response.get('intent')  
     params = query_response.get('parameters')
     action = intent_name.get('displayName')
-
-  print("query: ", query_response)
-  print("intent: ", intent_name)
-  print("action: ",action)
-  print('params:', params)
-
+    
   if action == 'check.topic':
     params = params.get('topic')
   if action == 'check.topic.ds':
     params = params.get('t-datascience')
-    
+    print('params after:', params)
   spiel =  handler.check_intent(action, params)
   return spiel
    
