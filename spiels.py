@@ -11,3 +11,8 @@ topics = [
     "Great choice! I got a lot of resources in <topic> that we can utilize and use for your studies.Type in whatever you wanted to explore in <topic>",
     "Alright, Let's see what we got for you on <topic>. Anything you wanted to explore?" 
 ]
+
+menu_handler = [
+    "Alright, here's what you can explore with <topic>",
+    "I find some useful information that you can utilize related to <topic>. Check these items below:"
+]

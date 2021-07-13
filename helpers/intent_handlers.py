@@ -5,6 +5,7 @@ import random
 import spiels
 import json
 from logs.utils import logging as log
+from helpers.api_handlers import Wiki_API as wiki
 
 def check_intent(action, params=''):
     # take query and get action key
@@ -42,17 +43,15 @@ def select_topic(topic):
 
 
 def extract_ds_menus(topic):
-    # # topic extracted from df queryresult
-    # if len(topic) > 1:
-    #     topic_str = " ".join(topic)
-    # else:
-    #     topic_str = topic[0]
+    # print('data science topic:', topic)
+    if len(topic) > 1:
+        topic_str = " ".join(topic)
+    else:
+        topic_str = topic[0]
 
-    print('DS MENUS here')
-    print('data science topic:', topic)
-    
+    wiki_menu = wiki.get_menu(topic)
     payload = {
-        "fulfillmentText": 'payload from data science',
+        "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str) + wiki_menu,
         "source": 'webhook'
     }
     return payload
