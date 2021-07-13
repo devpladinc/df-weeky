@@ -4,6 +4,8 @@ import sys
 import random
 import spiels
 
+from logs.utils import logging as log
+
 def check_intent(action, params=''):
     # take query and get action key
     intent_dict = {

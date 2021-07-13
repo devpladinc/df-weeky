@@ -25,6 +25,7 @@ def webhook():
   print("query: ", query_response)
   print("intent: ", intent_name)
   print("action: ",action)
+  print('params:', params)
   
   spiel =  handler.check_intent(action, params)
   return spiel
