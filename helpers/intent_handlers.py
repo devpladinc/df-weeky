@@ -50,7 +50,8 @@ def extract_ds_menus(topic):
     print("Menu in spiel:", menu)
 
     payload = {
-        "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic) + menu,
+        "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic),
+        "fulfillmentText": menu,
         "source": 'webhook'
     }
     return payload
