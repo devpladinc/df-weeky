@@ -39,6 +39,11 @@ def select_topic(topic):
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
         "source": 'webhook'
     }
+
     return payload
+
+def save_convo_trail():
+    # save all intents passed
+    pass
 
    
