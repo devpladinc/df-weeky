@@ -15,6 +15,9 @@ def webhook():
   try:
     # intents will high confidence sentiment has action in payload
     action = query_response.get('action')
+    spiel =  handler.check_intent(action)
+    return spiel
+  
   except Exception as e:
     # custom intents
     intent_name = query_response.get('intent')  
