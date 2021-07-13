@@ -50,8 +50,8 @@ def extract_ds_menus(topic):
     else:
         topic_str = topic[0]
 
-    wiki_menu = wiki.get_menu(topic)
-    log.info('wiki menu %s', wiki_menu)
+    # wiki_menu = wiki.get_menu(topic)
+    # log.info('wiki menu %s', wiki_menu)
 
     payload = {
         "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic_str),
