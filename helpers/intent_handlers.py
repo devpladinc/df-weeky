@@ -15,13 +15,12 @@ def check_intent(action, params=''):
         'check.topic.ds' : extract_ds_menus
     }
     try:
-        # log.info
         return intent_dict[action]()
     except Exception as e:
-        # log.info
         return intent_dict[action](params)
 
 def send_greetings():
+    # send dynamic greeting
     payload = {
         "fulfillmentText": random.choice(spiels.greetings),
         "source": 'webhook'
@@ -43,10 +42,10 @@ def select_topic(topic):
 
 
 def extract_ds_menus(topic):
-    print("get menu topic first", topic)
-
+    # menus from wikipedia.search(query)
     wiki_menu = wiki.get_menu(topic)
-    log.info('wiki menu %s', wiki_menu)
+    menu = "\n-".joing(wiki_menu)
+    print("Menu in spiel:", menu)
 
     payload = {
         "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic),
