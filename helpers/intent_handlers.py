@@ -43,6 +43,8 @@ def select_topic(topic):
 
 def extract_ds_menus(topic):
     # menus from wikipedia.search(query)
+    print("query topic:", topic)
+    print("extrat menus here")
     wiki_menu = wiki.get_menu(topic)
     menu = "\n-".join(wiki_menu)
     print("Menu in spiel:", menu)
