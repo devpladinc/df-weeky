@@ -3,7 +3,9 @@ import os
 import sys
 import random
 import spiels
+import json
 
+import convo
 from logs.utils import logging as log
 
 def check_intent(action, params=''):
@@ -27,15 +29,24 @@ def send_greetings():
     return payload
 
 def select_topic(topic):
-    print('select topic here')
-    print('params here:', topic)
+    # topic extracted from df queryresult
     if len(topic) > 1:
         topic_str = " ".join(topic)
     else:
         topic_str = topic[0]
 
-    payload = {
+    # payload = {
+    #     "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
+    #     "source": 'webhook'
+    # }
+
+    payload1 = convo['topics']
+    print("payload1:", payload1)
+    payload2 = convo.get('topics')
+    print("payload2:", payload2)
+    # return payload
+
+    return {
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
         "source": 'webhook'
     }
-    return payload

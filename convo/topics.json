@@ -1,0 +1,12 @@
+{ "topic" : {
+    "fulfillmentMessages": [
+        {
+        "text": {
+            "text": [
+            "Text response from webhook"
+            ]
+        }
+        }
+    ]
+}
+}
