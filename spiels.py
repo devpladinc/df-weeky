@@ -7,8 +7,7 @@ greetings = [
 
 
 topics = [
-    "topic1 ",
-    "topic2",
-    "topic3", 
-    "topic4", 
+    "Awesome!{} is a great topic to learn and I'll be glad to help with that",
+    "Nice choice. I'll be more than happy to walk you through this learning experience on {}",
+    "Great choice! I got a lot of resources in {} that we can utilize and use for your studies.", 
 ]

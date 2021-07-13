@@ -4,14 +4,19 @@ import sys
 import random
 import spiels
 
-def check_intent(action, params={}):
+def check_intent(action, params):
     # take query and get action key
     intent_dict = {
         'input.welcome' : send_greetings,
         'check.topic' : select_topic
     }
-    return intent_dict[action]()
-    
+    try:
+        # log.info
+        return intent_dict[action]()
+    except Exception as e:
+        # log.info
+        return intent_dict[action](params)
+
 def send_greetings():
     payload = {
         "fulfillmentText": random.choice(spiels.greetings),
@@ -19,9 +24,9 @@ def send_greetings():
     }
     return payload
 
-def select_topic():
+def select_topic(topic):
     payload = {
-        "fulfillmentText": random.choice(spiels.topics),
+        "fulfillmentText": str(random.choice(spiels.topics)).replace("{}", topic),
         "source": 'webhook'
     }
     return payload    

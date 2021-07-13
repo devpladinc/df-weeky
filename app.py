@@ -13,20 +13,18 @@ def webhook():
   req = request.get_json(silent=True, force=True)
   query_response = req.get('queryResult')
   try:
-    # intents will high confidence sentiment has action in payload
     action = query_response.get('action')
     spiel =  handler.check_intent(action)
     return spiel
   
   except Exception as e:
-    # custom intents
     intent_name = query_response.get('intent')  
     params = query_response.get('parameters')
     action = intent_name.get('displayName')
 
-  print("query: ", query_response)
-  print("intent: ", intent_name)
-  print("action: ",action)
+  # print("query: ", query_response)
+  # print("intent: ", intent_name)
+  # print("action: ",action)
   
   spiel =  handler.check_intent(action)
   return spiel
