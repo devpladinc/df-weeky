@@ -29,9 +29,13 @@ def send_greetings():
 def select_topic(topic):
     print('select topic here')
     print('params here:', topic)
-    
+    if len(topic) > 1:
+        topic_str = " ".join(topic)
+    else:
+        topic_str = topic[0]
+
     payload = {
-        "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic),
+        "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
         "source": 'webhook'
     }
-    return payload    
+    return payload
