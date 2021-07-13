@@ -44,14 +44,14 @@ def select_topic(topic):
 
 def extract_ds_menus(topic):
     print("get menu topic first", topic)
-    
+
     if len(topic) > 1:
         topic_str = " ".join(topic)
     else:
         topic_str = topic[0]
 
     wiki_menu = wiki.get_menu(topic)
-    print('WIKI MENUS:', wiki_menu)
+    log.info('wiki menu %s', wiki_menu)
 
     payload = {
         "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic_str),
