@@ -4,7 +4,7 @@ import sys
 import random
 import spiels
 
-def check_intent(action, params):
+def check_intent(action, params=''):
     # take query and get action key
     intent_dict = {
         'input.welcome' : send_greetings,

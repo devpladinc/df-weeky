@@ -22,11 +22,11 @@ def webhook():
     params = query_response.get('parameters')
     action = intent_name.get('displayName')
 
-  # print("query: ", query_response)
-  # print("intent: ", intent_name)
-  # print("action: ",action)
+  print("query: ", query_response)
+  print("intent: ", intent_name)
+  print("action: ",action)
   
-  spiel =  handler.check_intent(action)
+  spiel =  handler.check_intent(action, params)
   return spiel
    
 if __name__ == '__main__':
