@@ -26,9 +26,9 @@ def webhook():
   print("intent: ", intent_name)
   print("action: ",action)
   print('params:', params)
-  
+
   if action == 'check.topic':
-    params = params['topic']
+    params = params.get('topic')
 
   spiel =  handler.check_intent(action, params)
   return spiel
