@@ -15,5 +15,7 @@ class Wiki_API():
 
     def get_menu(query):
         # returns list/menu available with the query
+        print('inside get menu')
         menu_list = wiki.search(query)
+        print(menu_list)
         return menu_list

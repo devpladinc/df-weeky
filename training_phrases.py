@@ -40,5 +40,8 @@ ds_trigger = [
     'Explain how Linear Regression works',
     'I want to learn K-means Clustering and how to use it',
     'what is K-means Clustering',
-    'I want to explore how to use Decision Tree in my projects'
+    'I want to explore how to use Decision Tree in my projects',
+    'I need help in azure',
+    'please help with azure research'
+
 ]
