@@ -1,3 +1,5 @@
+# copy of dialogflow utterances
+
 bot_activate = [
     'impulso wake up',
     'I got a question',

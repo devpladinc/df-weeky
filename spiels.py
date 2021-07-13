@@ -4,3 +4,11 @@ greetings = [
     "Hello! I'am Impulso, you friendly-AI assistant. I got so many topics you can choose from. Shall we start?", 
     "Hi there mate! I'am Impulso, you friendly-AI pal and I'm excited to explore topics with you. Where shall we start?", 
 ]
+
+
+topics = [
+    "topic1 ",
+    "topic2",
+    "topic3", 
+    "topic4", 
+]
