@@ -46,13 +46,28 @@ def extract_ds_menus(topic):
     # print("query topic:", topic)
     # print("extrat menus here")
     wiki_menu = wiki.get_menu(topic)
-    menu = "\n-".join(wiki_menu)
+    menu = "\n".join(wiki_menu)
     print("Menu in spiel:", menu)
 
+    # payload = {
+    #     "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic),
+    #     "source": 'webhook'
+    # }
+
     payload = {
-        "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic),
-        "fulfillmentText": menu,
-        "source": 'webhook'
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+            random.choice(spiels.menu_handler).replace("<topic>", topic)
+          ]}
+      },{
+        "text": {
+          "text": [
+            menu
+          ]}
+      }
+    ],
+    "source" : 'webhook'
     }
     return payload
 
