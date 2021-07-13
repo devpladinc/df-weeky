@@ -35,18 +35,10 @@ def select_topic(topic):
     else:
         topic_str = topic[0]
 
-    # payload = {
-    #     "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
-    #     "source": 'webhook'
-    # }
-
-    payload1 = convo['topics']
-    print("payload1:", payload1)
-    payload2 = convo.get('topics')
-    print("payload2:", payload2)
-    # return payload
-
-    return {
+    payload = {
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
         "source": 'webhook'
     }
+    return payload
+
+   
