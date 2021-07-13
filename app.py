@@ -11,10 +11,11 @@ def server_healthcheck():
 @app.route('/webhook', methods=['POST'])
 def webhook():
   req = request.get_json(silent=True, force=True)
-  query_result = req.get('queryResult')
-  action = query_result.get('action')
+  query = req.get('queryResult')
+  action = query.get('action')
   
-  # print(query_result)
+  print("action: ",action)
+  print("query: ", query)
   spiel =  handler.check_intent(action)
   return spiel
    
