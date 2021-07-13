@@ -11,7 +11,7 @@ def check_intent(action, params=''):
     intent_dict = {
         'input.welcome' : send_greetings,
         'check.topic' : select_topic,
-        'check.topic.ds' : 
+        'check.topic.ds' : extract_ds_menus
     }
     try:
         # log.info
