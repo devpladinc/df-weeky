@@ -50,8 +50,10 @@ def extract_ds_menus(topic):
         topic_str = topic[0]
 
     wiki_menu = wiki.get_menu(topic)
+    print('WIKI MENUS:', wiki_menu)
+
     payload = {
-        "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str) + wiki_menu,
+        "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic_str),
         "source": 'webhook'
     }
     return payload
