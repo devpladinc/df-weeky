@@ -45,3 +45,13 @@ ds_trigger = [
     'please help with azure research'
 
 ]
+
+programming_trigger = [
+    'C+ books', 'Teach C+', 'I want to use C# with in my school paper', 'c++ and its origin',
+    'how to create application in c++', 'how to use c++', 'i want to explore javascript please',
+    'i want to use javascript in my project', 'javascript for newbie', 'I want to learn java',
+    'java and game making', 'I want to learn coding in java', 'Is Java hard to master', 
+    'kotlin for beginners', 'learn kotlin to make apps', 'create a program using kotlin',
+    'I want to learn how to use kotlin', 'How to code with python', 'My friends suggested to use python',
+    'Is python easy to use'   
+]

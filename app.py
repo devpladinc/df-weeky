@@ -26,7 +26,8 @@ def webhook():
     params = params.get('topic')
   if action == 'check.topic.ds':
     params = params.get('t-datascience')
-    print('params after:', params)
+    # print('params after:', params)
+    
   spiel =  handler.check_intent(action, params)
   return spiel
    

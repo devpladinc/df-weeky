@@ -17,3 +17,8 @@ class Wiki_API():
         # returns list/menu available with the query
         menu_list = wiki.search(query)
         return menu_list
+
+    def get_summary(query):
+        # returns str summary
+        summary = wiki.summary(query)
+        return summary

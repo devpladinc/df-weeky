@@ -12,7 +12,8 @@ def check_intent(action, params=''):
     intent_dict = {
         'input.welcome' : send_greetings,
         'check.topic' : select_topic,
-        'check.topic.ds' : extract_ds_menus
+        'check.topic.ds' : extract_ds_menus,
+        'check.topic.programming' : extract_ds_menus
     }
     try:
         return intent_dict[action]()
@@ -42,17 +43,9 @@ def select_topic(topic):
 
 
 def extract_ds_menus(topic):
-    # menus from wikipedia.search(query)
-    # print("query topic:", topic)
-    # print("extrat menus here")
     wiki_menu = wiki.get_menu(topic)
     menu = "\n".join(wiki_menu)
     print("Menu in spiel:", menu)
-
-    # payload = {
-    #     "fulfillmentText": random.choice(spiels.menu_handler).replace("<topic>", topic),
-    #     "source": 'webhook'
-    # }
 
     payload = {
         "fulfillmentMessages": [{
