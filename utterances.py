@@ -1,22 +1,22 @@
 # matching keys
+# utterance = {
+#     'python' : 'python language',
+#     'C++' : 'c++'
+# }
 
-utterance = {
-    'python' : 'python language'
-}
-
-menu_exclude = {
-    'azure' : ['Azure Dragon',
-               'Azure (color)',
-                'Azure A',
-                'Shades of azure',
-                'Azure Sphere'],
-
-    'c++' : ['Vitamin C', 
-            'Hepatitis C', 
-            'USB-C', 
-            'Lockheed C-5 Galaxy', 
-            'Mercedes-Benz C-Class', 
-            'Boeing C-17 Globemaster III', 
-            'Lockheed C-130 Hercules']       
-
+menu = {
+    'azure' : [
+               'Microsoft Azure',
+               'Azure Kinect',
+                'Azure Window',
+                'Azure DevOps Server'],
+    'python' : [
+                'Python (programming language)', 
+                'History of Python', 
+                'Python Software Foundation', 
+                'List of Python software', 
+                'Zen of Python', 
+                'Python syntax and semantics',
+                 'Anaconda (Python distribution)'
+                ]
 }

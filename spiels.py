@@ -13,6 +13,6 @@ topics = [
 ]
 
 menu_handler = [
-    "Alright, here's what you can explore with <topic>",
+    "Alright, here's what you can explore with <topic> :",
     "I find some useful information that you can utilize related to <topic>. Check these items below:"
 ]

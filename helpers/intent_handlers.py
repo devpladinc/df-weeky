@@ -45,26 +45,25 @@ def select_topic(topic):
 
 def extract_ds_menus(topic):
     try:
-        wiki_menu = wiki.get_menu(topic)
-        print('OLD MENU try:', wiki_menu)
+        # topic_filter = utterances.utterance.get(topic)
+        # print('topic_filter: ', topic_filter)
 
+    # try:
+        # wiki_menu = wiki.get_menu(topic)
+    #     print('OLD MENU try:', wiki_menu)
+
+    # except Exception as e:
+    #     # if failed to get menu, get from utterances
+    #     log.info('Error in fetching menu: %s', e)
+    #     wiki_menu = utterances.menu_exclude.get(topic)
+    #     print('OLD MENU:', wiki_menu)
+    # print('NEW MENU:', wiki_menu)        
+
+        # get menu
+        menu = utterances.menu.get(topic)
+        print('{} menu'.format(topic), menu)
     except Exception as e:
-        # if failed to get menu, get from utterances
-        log.info('Error in fetching menu: %s', e)
-        wiki_menu = utterances.menu_exclude.get(topic)
-        print('OLD MENU:', wiki_menu)
-    
-    # menu = "\n -".join(wiki_menu)
-    
-    # menu filtering
-    # excludes = utterance.get()
-
-    for item in wiki_menu:
-        print('here:', item)
-        if item in utterances.menu_exclude.get(topic):
-            wiki_menu.pop(item)
-
-    print('NEW MENU:', wiki_menu)        
+        log.info('unable to get topic %s', e)
 
     payload = {
         "fulfillmentMessages": [{
@@ -75,7 +74,7 @@ def extract_ds_menus(topic):
       },{
         "text": {
           "text": [
-            wiki_menu
+            menu
           ]}
       }
     ],
