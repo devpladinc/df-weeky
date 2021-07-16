@@ -1,5 +1,10 @@
 # matching utterance
 
+force_terms = [
+    'sql', 'SQL', 'Sql'
+]
+
+
 menu = {
     'azure' : [
                'Microsoft Azure',

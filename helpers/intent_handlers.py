@@ -43,7 +43,7 @@ def select_topic(topic):
     return payload
 
 def force_text_orient(topic):
-    if topic in ['sql', 'Sql', 'SQL']:
+    if topic in utterances.force_terms:
         return topic.upper()
     else:
         return topic.title()    
@@ -67,32 +67,12 @@ def extract_ds_menus(topic):
             random.choice(spiels.menu_handler).replace("<topic>", ftopic)
           ]}
       }
-    #   ,{
-    #     "text": {
-    #       "text": 
-    #         menu
-    #       }
-    #   }
-        ,{
-        "richContent": [
-            [
-            {
-                "type": "button",
-                "icon": {
-                "type": "chevron_right",
-                "color": "#FF9800"
-                },
-                "text": menu,
-                "link": "https://en.wikipedia.org/wiki/" + menu,
-                "event": {
-                "name": "",
-                "languageCode": "",
-                "parameters": {}
-                }
-            }
-            ]
-        ]
-        }
+      ,{
+        "text": {
+          "text": 
+            [ menu ]
+          }
+      }
     ],
     "source" : 'webhook'
     }
