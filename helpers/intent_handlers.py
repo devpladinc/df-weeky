@@ -54,6 +54,7 @@ def extract_ds_menus(topic):
         # get menu
         topic = topic.lower()
         menu = utterances.menu.get(topic)
+        menu_str = "\n -".join(menu)
     except Exception as e:
         log.info('unable to get topic %s', e)
     
@@ -70,7 +71,7 @@ def extract_ds_menus(topic):
       ,{
         "text": {
           "text": 
-            [ menu ]
+            menu_str 
           }
       }
     ],
