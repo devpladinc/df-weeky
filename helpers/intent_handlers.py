@@ -4,7 +4,7 @@ import sys
 import random
 import spiels
 import json
-from utterances import utterance
+import utterances
 from logs.utils import logging as log
 from helpers.api_handlers import Wiki_API as wiki
 
@@ -51,7 +51,7 @@ def extract_ds_menus(topic):
     except Exception as e:
         # if failed to get menu, get from utterances
         log.info('Error in fetching menu: %s', e)
-        wiki_menu = utterance.get(topic)
+        wiki_menu = utterances.menu_exclude.get(topic)
         print('OLD MENU:', wiki_menu)
     
     # menu = "\n -".join(wiki_menu)
@@ -60,7 +60,8 @@ def extract_ds_menus(topic):
     # excludes = utterance.get()
 
     for item in wiki_menu:
-        if item in utterance.get(topic):
+        print('here:', item)
+        if item in utterances.menu_exclude.get(topic):
             wiki_menu.pop(item)
 
     print('NEW MENU:', wiki_menu)        
