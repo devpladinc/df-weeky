@@ -22,3 +22,4 @@ class Wiki_API():
         # returns str summary
         summary = wiki.summary(query)
         return summary
+
