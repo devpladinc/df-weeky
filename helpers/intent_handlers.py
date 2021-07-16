@@ -44,21 +44,7 @@ def select_topic(topic):
 
 
 def extract_ds_menus(topic):
-    try:
-        # topic_filter = utterances.utterance.get(topic)
-        # print('topic_filter: ', topic_filter)
-
-    # try:
-        # wiki_menu = wiki.get_menu(topic)
-    #     print('OLD MENU try:', wiki_menu)
-
-    # except Exception as e:
-    #     # if failed to get menu, get from utterances
-    #     log.info('Error in fetching menu: %s', e)
-    #     wiki_menu = utterances.menu_exclude.get(topic)
-    #     print('OLD MENU:', wiki_menu)
-    # print('NEW MENU:', wiki_menu)        
-
+    try:  
         # get menu
         topic = topic.lower()
         menu = utterances.menu.get(topic)
@@ -74,9 +60,9 @@ def extract_ds_menus(topic):
           ]}
       },{
         "text": {
-          "text": [
+          "text": 
             menu
-          ]}
+          }
       }
     ],
     "source" : 'webhook'
