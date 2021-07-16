@@ -1,0 +1,4 @@
+2021-07-17 04:43:32,295 WARNING   * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2021-07-17 04:43:32,296 INFO      * Running on http://192.168.1.12:8080/ (Press CTRL+C to quit)
+2021-07-17 04:43:36,017 INFO     127.0.0.1 - - [17/Jul/2021 04:43:36] "GET / HTTP/1.1" 200 -

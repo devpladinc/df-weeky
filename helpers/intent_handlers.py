@@ -1,9 +1,10 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import os
 import sys
 import random
 import spiels
 import json
+from utterances import utterance
 from logs.utils import logging as log
 from helpers.api_handlers import Wiki_API as wiki
 
@@ -43,7 +44,13 @@ def select_topic(topic):
 
 
 def extract_ds_menus(topic):
-    wiki_menu = wiki.get_menu(topic)
+    try:
+        wiki_menu = wiki.get_menu(topic)
+    except Exception as e:
+        # if failed to get menu, get from utterances
+        log.info('Error in fetching menu: %s', e)
+        menu = utterance.get(topic)
+    
     menu = "\n".join(wiki_menu)
     print("Menu in spiel:", menu)
 
@@ -63,7 +70,5 @@ def extract_ds_menus(topic):
     "source" : 'webhook'
     }
     return payload
-
-
 
    
