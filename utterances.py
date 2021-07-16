@@ -1,8 +1,4 @@
-# matching keys
-# utterance = {
-#     'python' : 'python language',
-#     'C++' : 'c++'
-# }
+# matching utterance
 
 menu = {
     'azure' : [

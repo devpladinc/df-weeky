@@ -42,31 +42,44 @@ def select_topic(topic):
     }
     return payload
 
+def force_text_orient(topic):
+    if topic in ['sql', 'Sql', 'SQL']:
+        return topic.upper()
+    else:
+        return topic.title()    
+
 
 def extract_ds_menus(topic):
     try:  
         # get menu
         topic = topic.lower()
         menu = utterances.menu.get(topic)
-        print('{} menu'.format(topic), menu)
     except Exception as e:
         log.info('unable to get topic %s', e)
     
     # force text convention
-    if topic != 'SQL' or 'sql':
-        topic = topic.title()
+    ftopic = force_text_orient(topic)
 
     payload = {
         "fulfillmentMessages": [{
         "text": {
           "text": [
-            random.choice(spiels.menu_handler).replace("<topic>", topic)
+            random.choice(spiels.menu_handler).replace("<topic>", ftopic)
           ]}
-      },{
-        "text": {
-          "text": 
+      }
+    #   ,{
+    #     "text": {
+    #       "text": 
+    #         menu
+    #       }
+    #   }
+    ,{
+        "quickReplies": {
+          "title": menu,
+          "quickReplies": [
             menu
-          }
+          ]
+        },
       }
     ],
     "source" : 'webhook'
