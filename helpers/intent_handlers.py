@@ -51,6 +51,10 @@ def extract_ds_menus(topic):
         print('{} menu'.format(topic), menu)
     except Exception as e:
         log.info('unable to get topic %s', e)
+    
+    # force text convention
+    if topic != 'SQL' or 'sql':
+        topic = topic.title()
 
     payload = {
         "fulfillmentMessages": [{
