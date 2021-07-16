@@ -60,6 +60,7 @@ def extract_ds_menus(topic):
     # print('NEW MENU:', wiki_menu)        
 
         # get menu
+        topic = topic.lower()
         menu = utterances.menu.get(topic)
         print('{} menu'.format(topic), menu)
     except Exception as e:
