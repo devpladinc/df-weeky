@@ -73,14 +73,26 @@ def extract_ds_menus(topic):
     #         menu
     #       }
     #   }
-    ,{
-        "quickReplies": {
-          "title": menu,
-          "quickReplies": [
-            menu
-          ]
-        },
-      }
+        ,{
+        "richContent": [
+            [
+            {
+                "type": "button",
+                "icon": {
+                "type": "chevron_right",
+                "color": "#FF9800"
+                },
+                "text": menu,
+                "link": "https://en.wikipedia.org/wiki/" + menu,
+                "event": {
+                "name": "",
+                "languageCode": "",
+                "parameters": {}
+                }
+            }
+            ]
+        ]
+        }
     ],
     "source" : 'webhook'
     }
