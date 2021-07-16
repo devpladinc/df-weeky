@@ -74,7 +74,7 @@ def extract_ds_menus(topic):
       },{
         "text": {
           "text": [
-            menu
+            wiki_menu
           ]}
       }
     ],
