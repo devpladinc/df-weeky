@@ -55,6 +55,7 @@ def extract_ds_menus(topic):
         topic = topic.lower()
         menu = utterances.menu.get(topic)
         print('MENU HERE:', menu)
+        print('menu type:', type(menu))
 
     except Exception as e:
         log.info('unable to get topic %s', e)
@@ -89,14 +90,14 @@ def extract_ds_menus(topic):
         "payload": {
             "richContent": [
                 [{
-                    "subtitle": "Info item subtitle",
+                    "subtitle": "Azure subtitle",
                     "image": {
                         "src": {
                             "rawUrl": "https://example.com/images/logo.png"
                         }
                     },
-                    "actionLink": "https://wikipedia.org/wiki/" + menu,
-                    "title": menu[0],
+                    "actionLink": "https://wikipedia.org/wiki/azure",
+                    "title": "Azure",
                     "type": "info"
                 }]
             ]
