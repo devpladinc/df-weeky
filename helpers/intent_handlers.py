@@ -96,7 +96,7 @@ def extract_ds_menus(topic):
                         }
                     },
                     "actionLink": "https://wikipedia.org/wiki/" + menu,
-                    "title": menu,
+                    "title": menu[0],
                     "type": "info"
                 }]
             ]
