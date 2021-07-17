@@ -95,8 +95,8 @@ def extract_ds_menus(topic):
                             "rawUrl": "https://example.com/images/logo.png"
                         }
                     },
-                    "actionLink": "https://example.com",
-                    "title": "Info item title",
+                    "actionLink": "https://wikipedia.org/wiki/" + menu,
+                    "title": menu,
                     "type": "info"
                 }]
             ]
