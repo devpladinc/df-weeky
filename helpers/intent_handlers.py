@@ -54,66 +54,30 @@ def extract_ds_menus(topic):
         # get menu
         topic = topic.lower()
         menu = utterances.menu.get(topic)
-        menu_str = "\n".join(menu)
+        print('MENU HERE:', menu)
+
     except Exception as e:
         log.info('unable to get topic %s', e)
     
     # force text convention
     ftopic = force_text_orient(topic)
 
-    # payload = {
-    #     "fulfillmentMessages": [{
-    #     "text": {
-    #       "text": [
-    #         random.choice(spiels.menu_handler).replace("<topic>", ftopic)
-    #       ]}
-    #   }
-    #   ,{
-    #     "text": {
-    #       "text": 
-    #         menu_str 
-    #       }
-    #   }
-    # ],
-    # "source" : 'webhook'
-    # }
-
     payload = {
-        "payload": {
-            "google": {
-            "expectUserResponse": true,
-            "richResponse": {
-                "items": [
-                {
-                    "simpleResponse": {
-                    "textToSpeech": "text"
-                    }
-                },
-                {
-                    "basicCard": {
-                    "title": "title",
-                    "subtitle": "This is a subtitle",
-                    "formattedText": "This is a basic card.",
-                    "image": {
-                        "url": "https://example.com/image.png",
-                        "accessibilityText": "This is an image of an image"
-                    },
-                    "buttons": [
-                        {
-                        "title": "This is a button",
-                        "openUrlAction": {
-                            "url": "https://assistant.google.com/"
-                        }
-                        }
-                    ],
-                    "imageDisplayOptions": []
-                    }
-                }
-                ]
-            }
-            }
-        }
-        }
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+            random.choice(spiels.menu_handler).replace("<topic>", ftopic)
+          ]}
+      }
+      ,{
+        "text": {
+          "text": 
+            menu 
+          }
+      }
+    ],
+    "source" : 'webhook'
+    }
     return payload
 
    
