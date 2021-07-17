@@ -15,10 +15,8 @@ def webhook():
   req = request.get_json(silent=True, force=True)
   query_response = req.get('queryResult')
   
-  print('QUERY RESULT:', query_response)
   try:
     action = query_response.get('action')
-    print('ACTION TRY:', action)
     spiel =  handler.check_intent(action)
     return spiel
   
@@ -28,7 +26,6 @@ def webhook():
     
     action = intent_name.get('displayName')
     log.info('Action %s', action)
-    print('ACTION EXCEPT:', action)
 
     if action == 'check.topic':
       params = params.get('topic')

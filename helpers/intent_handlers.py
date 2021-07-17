@@ -62,26 +62,56 @@ def extract_ds_menus(topic):
     # force text convention
     ftopic = force_text_orient(topic)
 
+    # payload = {
+    #     "fulfillmentMessages": [{
+    #     "text": {
+    #       "text": [
+    #         random.choice(spiels.menu_handler).replace("<topic>", ftopic)
+    #       ]}
+    #   },{
+    #     "text": {
+    #       "text": 
+    #         menu 
+    #       }
+    #   }
+    # ],
+    # "source" : 'webhook'
+    # }
+
+
     payload = {
         "fulfillmentMessages": [{
         "text": {
           "text": [
             random.choice(spiels.menu_handler).replace("<topic>", ftopic)
           ]}
-      }
-      ,{
-        "text": {
-          "text": 
-            menu 
-          }
-      }
+      },{
+        "payload": {
+            "richContent": [
+                [{
+                    "subtitle": "Info item subtitle",
+                    "image": {
+                        "src": {
+                            "rawUrl": "https://example.com/images/logo.png"
+                        }
+                    },
+                    "actionLink": "https://example.com",
+                    "title": "Info item title",
+                    "type": "info"
+                }]
+            ]
+        }
+    }
     ],
     "source" : 'webhook'
     }
+
+
+
     return payload
 
 
 
-    
+
 
    
