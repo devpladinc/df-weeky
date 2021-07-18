@@ -1,4 +1,4 @@
-{
+templates = {
    "button_temp":{
     "payload": {
         "richContent": [

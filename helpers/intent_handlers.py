@@ -5,12 +5,10 @@ import random
 import spiels
 import json
 import utterances
-import convo_template
+from convo_template import payload
 from logs.utils import logging as log
 from helpers.payload_handler import Payload_API
 from helpers.api_handlers import Wiki_API as wiki
-
-payload = json.load(convo_template.payload)
 
 
 def check_intent(action, params=''):
