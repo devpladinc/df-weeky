@@ -6,7 +6,6 @@ import spiels
 import json
 import utterances
 from logs.utils import logging as log
-from convo_template import payload
 from helpers.api_handlers import Wiki_API as wiki
 
 
