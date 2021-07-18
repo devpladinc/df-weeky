@@ -57,8 +57,8 @@ def extract_ds_menus(topic):
         # get menu
         topic = topic.lower()
         menu = utterances.menu.get(topic)
-        print('MENU HERE:', menu)
-        print('menu type:', type(menu))
+        # print('MENU HERE:', menu)
+        # print('menu type:', type(menu))
 
     except Exception as e:
         log.info('unable to get topic %s', e)
@@ -66,24 +66,8 @@ def extract_ds_menus(topic):
     # force text convention
     ftopic = force_text_orient(topic)
 
-    # payload = {
-    #     "fulfillmentMessages": [{
-    #     "text": {
-    #       "text": [
-    #         random.choice(spiels.menu_handler).replace("<topic>", ftopic)
-    #       ]}
-    #   },{
-    #     "text": {
-    #       "text": 
-    #         menu 
-    #       }
-    #   }
-    # ],
-    # "source" : 'webhook'
-    # }
     button_list = []
     for item in menu:
-        print('item:', item)
         button = {
             "payload": {
                 "richContent": [
@@ -102,7 +86,9 @@ def extract_ds_menus(topic):
             }
         }
         button_list.append(button)
-    print('THIS button list:', button_list)
+
+    button_param = ",".join(button_list)
+    print('BUTTON PARAM:', button_param)
 
     payload = {
         "fulfillmentMessages": [{
@@ -111,9 +97,10 @@ def extract_ds_menus(topic):
             random.choice(spiels.menu_handler).replace("<topic>", ftopic)
           ]}
       },
-    button_list[0],
-    button_list[1],
-    button_list[2]
+    # button_list[0],
+    # button_list[1],
+    # button_list[2]
+    button_param
     ],
     "source" : 'webhook'
     }
