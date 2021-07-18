@@ -111,7 +111,7 @@ def extract_ds_menus(topic):
     # }
 
     
-    template = payload.get('template')
+    template = payload.get('templates')
     print('TEMPLATE MUNA:', template)
     rich_payload = template.get('base_temp')
     print('PAYLOAD TEMP LANG:', rich_payload)
