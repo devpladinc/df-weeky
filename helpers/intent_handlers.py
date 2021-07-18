@@ -102,6 +102,7 @@ def extract_ds_menus(topic):
             }
         }
         button_list.append(button)
+    print('THIS button list:', button_list)
         
     payload = {
         "fulfillmentMessages": [{
@@ -109,8 +110,8 @@ def extract_ds_menus(topic):
           "text": [
             random.choice(spiels.menu_handler).replace("<topic>", ftopic)
           ]}
-      }
-    ],
+      },
+    button_list],
     "source" : 'webhook'
     }
 
