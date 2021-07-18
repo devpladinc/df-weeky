@@ -81,45 +81,40 @@ def extract_ds_menus(topic):
     # ],
     # "source" : 'webhook'
     # }
+    button_list = []
+    for item in menu:
+        print('item:', item)
+        button = {
+            "payload": {
+                "richContent": [
+                    [{
+                        "subtitle": "Azure subtitle",
+                        "image": {
+                            "src": {
+                                "rawUrl": "https://example.com/images/logo.png"
+                            }
+                        },
+                        "actionLink": "https://wikipedia.org/wiki/azure",
+                        "title": item,
+                        "type": "info"
+                    }]
+                ]
+            }
+        }
+        button_list.append(button)
+        
+    payload = {
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+            random.choice(spiels.menu_handler).replace("<topic>", ftopic)
+          ]}
+      }
+    ],
+    "source" : 'webhook'
+    }
 
-
-    # payload = {
-    #     "fulfillmentMessages": [{
-    #     "text": {
-    #       "text": [
-    #         random.choice(spiels.menu_handler).replace("<topic>", ftopic)
-    #       ]}
-    #   },{
-    #     "payload": {
-    #         "richContent": [
-    #             [{
-    #                 "subtitle": "Azure subtitle",
-    #                 "image": {
-    #                     "src": {
-    #                         "rawUrl": "https://example.com/images/logo.png"
-    #                     }
-    #                 },
-    #                 "actionLink": "https://wikipedia.org/wiki/azure",
-    #                 "title": menu[0],
-    #                 "type": "info"
-    #             }]
-    #         ]
-    #     }
-    # }
-    # ],
-    # "source" : 'webhook'
-    # }
-
-    
-    template = payload.get('templates')
-    print('TEMPLATE MUNA:', template)
-    rich_payload = template.get('base_temp')
-    print('PAYLOAD TEMP LANG:', rich_payload)
-    update_payload = Payload_API.add_payload(rich_payload, 'text')
-    print('PAYLOAD SAMPLE WITH TEXT:', update_payload)
-   
-
-    return update_payload
+    return payload
 
 
 
