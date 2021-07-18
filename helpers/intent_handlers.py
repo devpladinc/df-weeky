@@ -7,7 +7,6 @@ import json
 import utterances
 from convo_template import payload
 from logs.utils import logging as log
-from helpers.payload_handler import Payload_API
 from helpers.api_handlers import Wiki_API as wiki
 
 
@@ -87,9 +86,6 @@ def extract_ds_menus(topic):
         }
         button_list.append(button)
 
-    button_param = ",".join(button_list)
-    print('BUTTON PARAM:', button_param)
-
     payload = {
         "fulfillmentMessages": [{
         "text": {
@@ -100,7 +96,7 @@ def extract_ds_menus(topic):
     # button_list[0],
     # button_list[1],
     # button_list[2]
-    button_param
+    {button for button in button_list},
     ],
     "source" : 'webhook'
     }
