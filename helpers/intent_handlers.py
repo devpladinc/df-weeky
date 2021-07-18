@@ -111,7 +111,8 @@ def extract_ds_menus(topic):
     # }
 
     
-    rich_payload = payload.get('base_temp')
+    template = payload.get('template')
+    rich_payload = template.get('base_temp')
     print('PAYLOAD TEMP LANG:', payload)
     update_payload = Payload_API.add_payload(rich_payload, 'text')
     print('PAYLOAD SAMPLE WITH TEXT:', update_payload)
