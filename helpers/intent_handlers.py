@@ -6,6 +6,8 @@ import spiels
 import json
 import utterances
 from logs.utils import logging as log
+from convo_template import payload
+from helpers.payload_handler import Payload_API
 from helpers.api_handlers import Wiki_API as wiki
 
 def check_intent(action, params=''):
@@ -80,34 +82,41 @@ def extract_ds_menus(topic):
     # }
 
 
-    payload = {
-        "fulfillmentMessages": [{
-        "text": {
-          "text": [
-            random.choice(spiels.menu_handler).replace("<topic>", ftopic)
-          ]}
-      },{
-        "payload": {
-            "richContent": [
-                [{
-                    "subtitle": "Azure subtitle",
-                    "image": {
-                        "src": {
-                            "rawUrl": "https://example.com/images/logo.png"
-                        }
-                    },
-                    "actionLink": "https://wikipedia.org/wiki/azure",
-                    "title": menu[0],
-                    "type": "info"
-                }]
-            ]
-        }
-    }
-    ],
-    "source" : 'webhook'
-    }
+    # payload = {
+    #     "fulfillmentMessages": [{
+    #     "text": {
+    #       "text": [
+    #         random.choice(spiels.menu_handler).replace("<topic>", ftopic)
+    #       ]}
+    #   },{
+    #     "payload": {
+    #         "richContent": [
+    #             [{
+    #                 "subtitle": "Azure subtitle",
+    #                 "image": {
+    #                     "src": {
+    #                         "rawUrl": "https://example.com/images/logo.png"
+    #                     }
+    #                 },
+    #                 "actionLink": "https://wikipedia.org/wiki/azure",
+    #                 "title": menu[0],
+    #                 "type": "info"
+    #             }]
+    #         ]
+    #     }
+    # }
+    # ],
+    # "source" : 'webhook'
+    # }
 
-    return payload
+    
+    rich_payload = payload.get('base_temp')
+    print('PAYLOAD TEMP LANG:', payload)
+    update_payload = Payload_API.add_payload(rich_payload, 'text')
+    print('PAYLOAD SAMPLE WITH TEXT:', update_payload)
+   
+
+    return update_payload
 
 
 
