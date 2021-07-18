@@ -97,7 +97,7 @@ def extract_ds_menus(topic):
                         }
                     },
                     "actionLink": "https://wikipedia.org/wiki/azure",
-                    "title": "Azure",
+                    "title": menu[0],
                     "type": "info"
                 }]
             ]
@@ -106,8 +106,6 @@ def extract_ds_menus(topic):
     ],
     "source" : 'webhook'
     }
-
-
 
     return payload
 
