@@ -44,7 +44,6 @@ def select_topic(topic):
 
     payload = {
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
-         "fulfillmentText": "Page name" + page_name,
         "source": 'webhook'
     }
     return payload
