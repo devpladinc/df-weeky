@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
-from helpers.intent_handlers import IntentHandler_API as handler
+from helpers import intent_handlers as handler
 from logs.utils import logging as log
-from helpers.api_handlers import Wiki_API as wiki
 
 app = Flask(__name__)
 
