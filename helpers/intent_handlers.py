@@ -38,10 +38,7 @@ def select_topic(topic):
         topic_str = " ".join(topic)
     else:
         topic_str = topic[0]
-
-    page_name = send_summary(topic)
-    print('Summary:', page_name)
-
+    
     payload = {
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
         "source": 'webhook'
