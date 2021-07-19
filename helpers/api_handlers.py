@@ -22,7 +22,7 @@ class Wiki_API():
         menu_list = wiki.search(query)
         return menu_list
 
-    def get_summary(self, page):
+    def get_summary(page):
         # returns str summary
         title = wiki.title(page)
         summary = title.summary(page)

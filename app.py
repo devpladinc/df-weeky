@@ -35,8 +35,11 @@ def webhook():
       params = params.get('t-programming')
       print('PARAMS:', params)
       handler.send_summary(params)
-      return True
-  
+      payload = {
+        "fulfillmentText": "dummy",
+        "source": 'webhook'
+      }
+      return payload
 
   spiel =  handler.check_intent(action, params)
   return spiel
