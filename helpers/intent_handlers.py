@@ -52,7 +52,7 @@ def send_summary(topic):
         summary = wiki.get_summary(page_name)
         print('SUMMARY:', summary)
     except Exception as e:
-        log.info('Fetch summary error:', e)   
+        log.info('Fetch summary error: %s', e)   
 
 
 def force_text_orient(topic):
