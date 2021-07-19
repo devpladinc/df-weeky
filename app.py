@@ -34,9 +34,10 @@ def webhook():
     if action == 'check.topic.programming':
       params = params.get('t-programming')
       print('PARAMS:', params)
-      handler.send_summary(params)
+      summary = handler.send_summary(params)
+      
       payload = {
-        "fulfillmentText": "dummy",
+        "fulfillmentText": summary,
         "source": 'webhook'
       }
       return payload
