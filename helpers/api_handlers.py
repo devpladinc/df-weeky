@@ -13,24 +13,21 @@ class Wiki_API():
     def __init__(self):
         pass
 
-    def get_page(query):
+    def get_page(self, query):
         page = wiki.page(query)
+        self.page = page
         return page
 
-    def get_menu(query):
-        # returns list/menu available with the query
-        menu_list = wiki.search(query)
-        return menu_list
-
+    def get_title(self):
+        page = self.page
+        title = wiki.title(page)
+        return title
+    
     def get_summary(page):
         # returns str summary
         title = wiki.title(page)
         summary = title.summary(page)
         return summary
-
-    def get_title(query):
-        title = wiki.title()    
-        return title
 
     def get_sections(self, query, sections, level=0):
         page = self.get_page(query)
