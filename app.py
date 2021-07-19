@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from helpers import intent_handlers as handler
+from helpers.intent_handlers import IntentHandler_API as handler
 from logs.utils import logging as log
 from helpers.api_handlers import Wiki_API as wiki
 
@@ -31,6 +31,7 @@ def webhook():
       params = params.get('topic')
   
   spiel =  handler.check_intent(action, params)
+
   return spiel
    
 if __name__ == '__main__':
