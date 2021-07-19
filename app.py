@@ -29,19 +29,7 @@ def webhook():
 
     if action == 'check.topic':
       params = params.get('topic')
-    # if action == 'check.topic.ds':
-    #   params = params.get('t-datascience')
-    if action == 'check.topic.programming':
-      params = params.get('t-programming')
-      print('PARAMS:', params)
-      summary = handler.send_summary(params)
-      
-      payload = {
-        "fulfillmentText": summary,
-        "source": 'webhook'
-      }
-      return payload
-
+  
   spiel =  handler.check_intent(action, params)
   return spiel
    
