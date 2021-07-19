@@ -23,9 +23,9 @@ class IntentHandler_API():
             # 'check.topic.programming' : extract_ds_menus
         }
         try:
-            return intent_dict[action]()
+            return intent_dict[action](self)
         except Exception as e:
-            return intent_dict[action](params)
+            return intent_dict[action](self, params)
 
     def send_greetings(self):
         # send dynamic greeting
