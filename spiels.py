@@ -6,13 +6,14 @@ greetings = [
     "Hey there buddy! I'm glad to see you here. I'm impulso, your AI assistant for all things learning. What topic would you like to explore?" 
 ]
 topics = [
-    "Awesome! <topic> is a great topic to learn and explore.",
+    "<topic> is a great topic to learn and explore.",
     "Nice choice. I'll be more than happy to walk you through this learning experience on <topic>.",
     "Great choice! I got a lot of resources in <topic> that we can utilize and use for your studies.",
     "Alright, Let's see what we got for you on <topic>.",
-    "Here's to amazing start to learn about <topic>.",
+    "Here's to amazing start learning about <topic>.",
     "<topic> is one of best topics you can learn today.",
     "Alright, here's what I found for you to explore with <topic>.",
+    "Let's see <topic>..."
 ]
 
 
@@ -20,5 +21,6 @@ summary_spiel = [
     "Based on studies, ",
     "As per research, ",
     "According to my research, ",
-    "Research states that "
+    "Research states that ",
+    "Based on my gathered information, "
 ]
