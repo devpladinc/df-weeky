@@ -59,6 +59,11 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.summary_spiel) + summary
           ]}
+      },{
+        "text": {
+          "text": [
+            random.choice(spiels.sections_spiel)
+          ]}
       }
     ],
     "source" : 'webhook'
@@ -83,7 +88,7 @@ def send_summary(topic):
 
 def force_text_orient(topic):
     if topic in utterances.force_match:
-        return topic.upper()
+        return utterances.force_match.get(topic)
     else:
         return topic.title()    
 
