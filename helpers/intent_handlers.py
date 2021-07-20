@@ -46,7 +46,10 @@ def select_topic(topic):
         except Exception as err:
             log.info('Unable to fetch summary: %s', err)
             # place error handling
-
+    
+    sections = get_sections(topic)
+    print('sections here:', sections)
+    
     # finalize payload
     payload = {
         "fulfillmentMessages": [{
@@ -86,7 +89,22 @@ def send_summary(topic):
         return e
 
 
-def force_text_orient(topic):
+def get_sections(topic):
+    wiki_bot = wiki('en')
+    page = wiki_bot.page(topic)
+
+    try:
+        section_list = []
+        sections = page.sections
+        for section in sections:
+            section_list.append(section.title)
+        print('SECTION TITLES:', section_list)
+        return section_list
+    except Exception as e:
+        log.info('Unable to fetch sections: %s', e)
+
+
+def force_text_orient(topic):                                                          
     if topic in utterances.force_match:
         return utterances.force_match.get(topic)
     else:
