@@ -40,10 +40,10 @@ def select_topic(topic):
         topic_str = topic[0]
     
     summary = send_summary
-    
+
     payload = {
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
-        "fulfillmentText": random.choice(summary),
+        "fulfillmentText": summary,
         "source": 'webhook'
     }
     return payload
