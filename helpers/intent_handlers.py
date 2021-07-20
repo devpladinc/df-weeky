@@ -40,16 +40,17 @@ def select_topic(topic):
     parsed_topic = utterances.topics.get(topic_str.lower())
     if parsed_topic is not None:
         summary = send_summary(parsed_topic)
+        sections = get_sections(parsed_topic)
     else:
         try:
             summary = send_summary(topic_str.lower())
+            sections = get_sections(topic_str.lower())
         except Exception as err:
             log.info('Unable to fetch summary: %s', err)
             # place error handling
     
-    sections = get_sections(topic)
     print('sections here:', sections)
-    
+
     # finalize payload
     payload = {
         "fulfillmentMessages": [{
