@@ -49,7 +49,7 @@ def select_topic(topic):
             log.info('Unable to fetch summary: %s', err)
             # place error handling
     # parse sections
-    section_str = "-".join(sections)
+    section_str = "- ".join(sections)
 
     # finalize payload
     payload = {
@@ -71,7 +71,7 @@ def select_topic(topic):
       },{
         "text": {
           "text": [
-            section_str
+            "- " + section_str
           ]}
       }
     ],
