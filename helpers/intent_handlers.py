@@ -52,13 +52,12 @@ def select_topic(topic):
         "fulfillmentMessages": [{
         "text": {
           "text": [
-            random.choice(spiels.summary_spiel) + 
             random.choice(spiels.topics).replace("<topic>", topic_str.title())
           ]}
       },{
         "text": {
           "text": [
-            summary
+            random.choice(spiels.summary_spiel) + summary
           ]}
       }
     ],
@@ -72,7 +71,9 @@ def send_summary(topic):
 
     try: 
         page = wiki_bot.page(topic)
-        summary = page.summary
+        summary_data = page.summary
+        summary = summary_data.replace(".\n", ".\n\n")
+
         return summary
        
     except Exception as e:
