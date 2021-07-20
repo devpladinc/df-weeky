@@ -36,7 +36,7 @@ def select_topic(topic):
     else:
         topic_str = topic[0]
     
-    # check topic before fetch summary
+    # check topic before fetch summary and sections
     parsed_topic = utterances.topics.get(topic_str.lower())
     if parsed_topic is not None:
         summary = send_summary(parsed_topic)
@@ -68,6 +68,11 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.sections_spiel)
           ]}
+      },{
+        "text": {
+          "text": [
+            sections
+          ]}
       }
     ],
     "source" : 'webhook'
@@ -90,7 +95,7 @@ def send_summary(topic):
         return e
 
 
-def get_sections(topic):
+def get_sections(topic, level=0):
     wiki_bot = wiki('en')
     page = wiki_bot.page(topic)
 
@@ -98,12 +103,17 @@ def get_sections(topic):
         section_list = []
         sections = page.sections
         for section in sections:
-            section_list.append(section.title)
-        print('SECTION TITLES:', section_list)
-        return section_list
+            if section in utterances.exclude_sections:
+                section.pop()
+            else:
+                section_list.append(section.title) + "\n"
+        
+        # return as string
+        section_str = "-".join(section_list)
+        return section_str
     except Exception as e:
         log.info('Unable to fetch sections: %s', e)
-
+        
 
 def force_text_orient(topic):                                                          
     if topic in utterances.force_match:

@@ -5,6 +5,13 @@ force_match = {
     'Sql' : 'SQL'
 }
 
+exclude_sections = [
+    'See also',
+    'External links',
+    'References',
+    'Further reading'
+]
+
 topics = {
     'python' : 'Python_(programming_language)',
     'microsoft azure' : 'microsoft azure',
