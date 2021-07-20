@@ -66,12 +66,7 @@ def select_topic(topic):
       },{
         "text": {
           "text": [
-            random.choice(spiels.sections_spiel)
-          ]}
-      },{
-        "text": {
-          "text": [
-            "- " + section_str
+            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
           ]}
       }
     ],
