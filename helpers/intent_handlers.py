@@ -11,7 +11,7 @@ from wikipediaapi import Wikipedia as wiki
 
 
 def check_intent(action, params=''):
-    # take query and get action key
+    # take query and get action key 
     intent_dict = {
         'input.welcome' : send_greetings,
         'check.topic' : select_topic
@@ -46,10 +46,11 @@ def select_topic(topic):
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
         "source": 'webhook'
     }
+
     return payload
 
 def send_summary(topic):
-    wiki_bot = wiki.Wikipedia('en')
+    wiki_bot = wiki('en')
 
     try: 
         page = wiki_bot.page(topic)
