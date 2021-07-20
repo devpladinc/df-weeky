@@ -1,4 +1,10 @@
 # force match query for summary
+force_match = {
+    'power bi' : 'Power BI',
+    'sql' : 'SQL',
+    'Sql' : 'SQL'
+}
+
 topics = {
     'python' : 'Python_(programming_language)',
     'microsoft azure' : 'microsoft azure',

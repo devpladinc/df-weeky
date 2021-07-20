@@ -37,7 +37,6 @@ def select_topic(topic):
         topic_str = topic[0]
     
     # check topic before fetch summary
-    
     parsed_topic = utterances.topics.get(topic_str.lower())
     if parsed_topic is not None:
         summary = send_summary(parsed_topic)
@@ -53,7 +52,7 @@ def select_topic(topic):
         "fulfillmentMessages": [{
         "text": {
           "text": [
-            random.choice(spiels.topics).replace("<topic>", topic_str.title())
+            random.choice(spiels.topics).replace("<topic>", force_text_orient(topic_str))
           ]}
       },{
         "text": {
@@ -83,7 +82,7 @@ def send_summary(topic):
 
 
 def force_text_orient(topic):
-    if topic in utterances.force_terms:
+    if topic in utterances.force_match:
         return topic.upper()
     else:
         return topic.title()    
