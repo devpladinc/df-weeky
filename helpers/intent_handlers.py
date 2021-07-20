@@ -15,8 +15,6 @@ def check_intent(action, params=''):
     intent_dict = {
         'input.welcome' : send_greetings,
         'check.topic' : select_topic
-        # 'check.topic.ds' : extract_ds_menus,
-        # 'check.topic.programming' : extract_ds_menus
     }
     try:
         return intent_dict[action]()
@@ -25,7 +23,6 @@ def check_intent(action, params=''):
         
 
 def send_greetings():
-    # send dynamic greeting
     payload = {
         "fulfillmentText": random.choice(spiels.greetings),
         "source": 'webhook'
@@ -33,24 +30,29 @@ def send_greetings():
     return payload
 
 def select_topic(topic):
-    # parse query
+    # parse topic query
     if len(topic) > 1:
         topic_str = " ".join(topic)
     else:
         topic_str = topic[0]
     
     # check topic before fetch summary
-    parsed_topic = utterances.topics.get(topic_str.lower())
-    summary = send_summary(parsed_topic)
+    try:
+        parsed_topic = utterances.topics.get(topic_str.lower())
+        summary = send_summary(parsed_topic)
+    except Exception as e:
+        log.info('not in the keyword mapping', e)
+        try:
+            summary = send_summary(topic_str.lower())
+        except Exception as err:
+            log.info('Unable to fetch summary: %s', err)
+            # place error handling
 
-    # payload = {
-    #     "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str.title()),
-    #     "source": 'webhook'
-    # }
     payload = {
         "fulfillmentMessages": [{
         "text": {
           "text": [
+            random.choice(spiels.summary_spiel) + 
             random.choice(spiels.topics).replace("<topic>", topic_str.title())
           ]}
       },{

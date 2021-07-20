@@ -11,16 +11,15 @@ topics = [
     "Great choice! I got a lot of resources in <topic> that we can utilize and use for your studies.",
     "Alright, Let's see what we got for you on <topic>.",
     "Here's to amazing start to learn about <topic>.",
-    "<topic> is one of top topics you can learn today."
+    "<topic> is one of best topics you can learn today.",
+    "Alright, here's what I found for you to explore with <topic>.",
 ]
 
-menu_handler = [
-    "Alright, here's what you can explore with <topic> \n\nYou may select one below.",
-    "I find some useful information that you can utilize related to <topic>. Check these items below:"
-]
 
 summary_spiel = [
     "To begin, ",
     "To start with, ",
-    "Based on studies, "
+    "Based on studies, ",
+    "As per research, ",
+    "According to my research"
 ]
