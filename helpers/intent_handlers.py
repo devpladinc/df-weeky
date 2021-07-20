@@ -53,9 +53,9 @@ def send_summary(topic):
 
     try: 
         page = wiki_bot.page(topic)
-        title = page.title
         summary = page.summary
         print('Summary:', summary)
+        return summary
        
     except Exception as e:
         log.info('Fetch summary error: %s', e)
