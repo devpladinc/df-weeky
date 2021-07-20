@@ -98,7 +98,7 @@ def get_sections(topic):
         section_list = []
         sections = page.sections
         for section in sections:
-            if section in utterances.exclude_sections:
+            if section.title in utterances.exclude_sections:
                 log.info('Excluding %s in section list', section)
                 break
             else:
