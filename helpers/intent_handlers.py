@@ -33,20 +33,36 @@ def send_greetings():
     return payload
 
 def select_topic(topic):
-    # topic extracted from df queryresult
-    print('HERE topic')
+    # parse query
     if len(topic) > 1:
         topic_str = " ".join(topic)
     else:
         topic_str = topic[0]
     
-    summary = send_summary(topic)
+    # check topic before fetch summary
+    parsed_topic = utterances.topic.get(topic.lower())
+    summary = send_summary(parsed_topic)
 
+    # payload = {
+    #     "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str.title()),
+    #     "source": 'webhook'
+    # }
     payload = {
-        "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
-        "fulfillmentText": summary,
-        "source": 'webhook'
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+            random.choice(spiels.topics).replace("<topic>", topic_str.title())
+          ]}
+      },{
+        "text": {
+          "text": [
+            summary
+          ]}
+      }
+    ],
+    "source" : 'webhook'
     }
+
     return payload
 
 def send_summary(topic):
