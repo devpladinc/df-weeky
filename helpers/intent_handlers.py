@@ -90,7 +90,7 @@ def send_summary(topic):
         return e
 
 
-def get_sections(topic, level=0):
+def get_sections(topic):
     wiki_bot = wiki('en')
     page = wiki_bot.page(topic)
 
