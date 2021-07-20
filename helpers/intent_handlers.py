@@ -98,14 +98,13 @@ def get_sections(topic):
         section_list = []
         sections = page.sections
         for section in sections:
-            if section.title in utterances.exclude_sections:
-                log.info('Excluding %s in section list', section)
-                break
-            else:
-                section_list.append(section.title) + "\n"
-        
+            # if section.title in utterances.exclude_sections:
+            #     log.info('Excluding %s in section list', section)
+            #     break
+            # else:
+            #     section_list.append(section.title) + "\n"
+            section_list.append(section.title) + "\n"
         # return as string
-        print("section_list:", section_list)
         section_str = "-".join(section_list)
         return section_str
     except Exception as e:
