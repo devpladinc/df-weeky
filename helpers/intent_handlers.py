@@ -34,6 +34,7 @@ def send_greetings():
 
 def select_topic(topic):
     # topic extracted from df queryresult
+    print('HERE topic')
     if len(topic) > 1:
         topic_str = " ".join(topic)
     else:
@@ -43,7 +44,6 @@ def select_topic(topic):
 
     payload = {
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
-        "fulfillmentText": summary,
         "source": 'webhook'
     }
     return payload
@@ -54,7 +54,7 @@ def send_summary(topic):
     try: 
         page = wiki_bot.page(topic)
         summary = page.summary
-        print('Summary:', summary)
+        print(type(summary))
         return summary
        
     except Exception as e:
