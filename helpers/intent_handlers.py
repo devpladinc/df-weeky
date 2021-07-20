@@ -39,8 +39,11 @@ def select_topic(topic):
     else:
         topic_str = topic[0]
     
+    summary = send_summary
+    
     payload = {
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
+        "fulfillmentText": random.choice(summary),
         "source": 'webhook'
     }
     return payload
@@ -49,9 +52,10 @@ def send_summary(topic):
     wiki_bot = wiki.Wikipedia('en')
 
     try: 
-        page_name = wiki_bot.page(topic)
-        print('PAGE NAME:', page_name)
-        return page_name
+        page = wiki_bot.page(topic)
+        title = page.title
+        summary = page.summary
+        print('Summary:', summary)
        
     except Exception as e:
         log.info('Fetch summary error: %s', e)
