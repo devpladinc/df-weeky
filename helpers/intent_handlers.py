@@ -39,7 +39,7 @@ def select_topic(topic):
     else:
         topic_str = topic[0]
     
-    summary = send_summary
+    summary = send_summary(topic)
 
     payload = {
         "fulfillmentText": random.choice(spiels.topics).replace("<topic>", topic_str),
