@@ -37,17 +37,18 @@ def select_topic(topic):
         topic_str = topic[0]
     
     # check topic before fetch summary
-    try:
-        parsed_topic = utterances.topics.get(topic_str.lower())
+    
+    parsed_topic = utterances.topics.get(topic_str.lower())
+    if parsed_topic is not None:
         summary = send_summary(parsed_topic)
-    except Exception as e:
-        log.info('not in the keyword mapping', e)
+    else:
         try:
             summary = send_summary(topic_str.lower())
         except Exception as err:
             log.info('Unable to fetch summary: %s', err)
             # place error handling
 
+    # finalize payload
     payload = {
         "fulfillmentMessages": [{
         "text": {

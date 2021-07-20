@@ -17,9 +17,8 @@ topics = [
 
 
 summary_spiel = [
-    "To begin, ",
-    "To start with, ",
     "Based on studies, ",
     "As per research, ",
-    "According to my research, "
+    "According to my research, ",
+    "Research states that "
 ]
