@@ -89,7 +89,6 @@ def send_summary(topic):
         log.info('Fetch summary error: %s', e)
         return e
 
-
 def get_sections(topic):
     wiki_bot = wiki('en')
     page = wiki_bot.page(topic)
@@ -98,17 +97,15 @@ def get_sections(topic):
         section_list = []
         sections = page.sections
         for section in sections:
-            # if section.title in utterances.exclude_sections:
-            #     log.info('Excluding %s in section list', section)
-            #     break
-            # else:
-            #     section_list.append(section.title) + "\n"
-            section_list.append(section.title + "\n")
-        # return as string
+            if section.title in utterances.exclude_sections:
+                log.info('Excluding %s in section list', section)
+                break
+            else:
+                section_list.append(section.title + "\n")
         return section_list
     except Exception as e:
         log.info('Unable to fetch sections: %s', e)
-        
+        # error handling here
 
 def force_text_orient(topic):                                                          
     if topic in utterances.force_match:
