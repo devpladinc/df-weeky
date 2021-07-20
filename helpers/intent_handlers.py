@@ -68,11 +68,6 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.sections_spiel)
           ]}
-      },{
-        "text": {
-          "text": [
-            sections
-          ]}
       }
     ],
     "source" : 'webhook'
