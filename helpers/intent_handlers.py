@@ -40,7 +40,7 @@ def select_topic(topic):
         topic_str = topic[0]
     
     # check topic before fetch summary
-    parsed_topic = utterances.topic.get(topic.lower())
+    parsed_topic = utterances.topics.get(topic_str.lower())
     summary = send_summary(parsed_topic)
 
     # payload = {

@@ -1,5 +1,5 @@
 # force match query for summary
-topic = {
+topics = {
     'python' : 'Python_(programming_language)', 
     
 }
