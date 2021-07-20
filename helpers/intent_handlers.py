@@ -105,8 +105,7 @@ def get_sections(topic):
             #     section_list.append(section.title) + "\n"
             section_list.append(section.title) + "\n"
         # return as string
-        section_str = "-".join(section_list)
-        return section_str
+        return section_list
     except Exception as e:
         log.info('Unable to fetch sections: %s', e)
         
