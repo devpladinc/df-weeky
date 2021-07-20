@@ -103,7 +103,7 @@ def get_sections(topic):
             #     break
             # else:
             #     section_list.append(section.title) + "\n"
-            section_list.append(section.title) + "\n"
+            section_list.append(section.title + "\n")
         # return as string
         return section_list
     except Exception as e:
