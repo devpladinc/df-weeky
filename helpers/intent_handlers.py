@@ -48,8 +48,8 @@ def select_topic(topic):
         except Exception as err:
             log.info('Unable to fetch summary: %s', err)
             # place error handling
-    
-    print('sections here:', sections)
+    # parse sections
+    section_str = "-".join(sections)
 
     # finalize payload
     payload = {
@@ -67,6 +67,11 @@ def select_topic(topic):
         "text": {
           "text": [
             random.choice(spiels.sections_spiel)
+          ]}
+      },{
+        "text": {
+          "text": [
+            section_str
           ]}
       }
     ],
