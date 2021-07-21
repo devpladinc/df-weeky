@@ -50,7 +50,8 @@ def select_topic(topic):
             # place error handling
     
     # parse sections
-    # section_str = "- ".join(sections)
+    section_str = "- ".join(sections)
+    
     section_chip = create_chip(3)
     print('SECTION CHIP:', section_chip)
 
@@ -66,13 +67,12 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.summary_spiel) + summary
           ]}
+      },{
+        "text": {
+          "text": [
+            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
+          ]}
       }
-    #   ,{
-    #     "text": {
-    #       "text": [
-    #         random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
-    #       ]}
-    #   }
     ],
     "source" : 'webhook'
     }
