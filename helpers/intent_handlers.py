@@ -50,8 +50,8 @@ def select_topic(topic):
             # place error handling
     
     # parse sections
-    section_str = "- ".join(sections)
-    section_chip = create_chip(3)
+    # section_str = "- ".join(sections)
+    section_chip = create_chip(sections, 3)
     print('This is section chip:', section_chip)
 
     # finalize payload
@@ -66,12 +66,13 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.summary_spiel) + summary
           ]}
-      },{
-        "text": {
-          "text": [
-            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
-          ]}
       },
+    #   ,{
+    #     "text": {
+    #       "text": [
+    #         random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
+    #       ]}
+    #   }
       section_chip
     ],
     "source" : 'webhook'
@@ -119,7 +120,10 @@ def force_text_orient(topic):
     else:
         return topic.title()    
 
-def create_chip(chip_count=0):
+def create_chip(section_list, chip_count=0):
+    
+    sections = section_list
+    
     chip_base = {
         "payload" :{
         "richContent": [
@@ -129,7 +133,7 @@ def create_chip(chip_count=0):
     
     for ctr in range(chip_count):
         chip_payload = {
-            "text": "sample button text",
+            "text": sections[chip_count],
             "type": "button",
             "link": "https://example.org",
             "event": {
