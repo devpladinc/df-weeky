@@ -131,9 +131,10 @@ def create_chip(section_list, chip_count=0):
             ]
         }}
     
+    ctr = 0
     for ctr in range(chip_count):
         chip_payload = {
-            "text": sections[chip_count],
+            "text": sections[ctr],
             "type": "button",
             "link": "https://example.org",
             "event": {
@@ -148,7 +149,8 @@ def create_chip(section_list, chip_count=0):
             }
         rich_content_list = chip_base.get('payload').get('richContent')[0]
         rich_content_list.append(chip_payload)
-        
+        ctr += 1
+
     return chip_base
 
 
