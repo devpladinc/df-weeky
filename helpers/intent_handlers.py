@@ -117,10 +117,11 @@ def force_text_orient(topic):
 
 def create_chip(chip_count=0):
     chip_base = {
+        "payload" :{
         "richContent": [
                 []
             ]
-        }
+        }}
     
     for ctr in range(len(chip_count)):
         chip_payload = {
@@ -137,7 +138,7 @@ def create_chip(chip_count=0):
                 "type": "chevron_right"
             }
             }
-        rich_content_list = chip_base.get('richContent')[0]
+        rich_content_list = chip_base.get('payload').get('richContent')[0]
         rich_content_list.append(chip_payload)
         
     return chip_base
