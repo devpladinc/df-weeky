@@ -48,8 +48,11 @@ def select_topic(topic):
         except Exception as err:
             log.info('Unable to fetch summary: %s', err)
             # place error handling
+    
     # parse sections
-    section_str = "- ".join(sections)
+    # section_str = "- ".join(sections)
+    section_chip = create_chip(3)
+    print('SECTION CHIP:', section_chip)
 
     # finalize payload
     payload = {
@@ -63,12 +66,13 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.summary_spiel) + summary
           ]}
-      },{
-        "text": {
-          "text": [
-            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
-          ]}
       }
+    #   ,{
+    #     "text": {
+    #       "text": [
+    #         random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
+    #       ]}
+    #   }
     ],
     "source" : 'webhook'
     }
@@ -112,6 +116,33 @@ def force_text_orient(topic):
         return utterances.force_match.get(topic)
     else:
         return topic.title()    
+
+def create_chip(chip_count=0):
+    chip_base = {
+        "richContent": [
+                []
+            ]
+        }
+    
+    for ctr in range(len(chip_count)):
+        chip_payload = {
+            "text": "sample button text",
+            "type": "button",
+            "link": "https://example.org",
+            "event": {
+                "languageCode": "en",
+                "parameters": {},
+                "name": ""
+            },
+            "icon": {
+                "color": "#FF9800",
+                "type": "chevron_right"
+            }
+            }
+        rich_content_list = chip_base.get('richContent')
+        print('rich_content_list', rich_content_list, type(rich_content_list))
+        
+        return chip_base
 
 
 # def extract_ds_menus(topic):
