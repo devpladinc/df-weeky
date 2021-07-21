@@ -51,8 +51,10 @@ def select_topic(topic):
     
     # parse sections
     # section_str = "- ".join(sections)
+    
+    # generate dynamic chip
     section_chip = create_chip(sections, 3)
-    print('This is section chip:', section_chip)
+    log.info('Section chip: %s', section_chip)
 
     # finalize payload
     payload = {
@@ -66,20 +68,17 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.summary_spiel) + summary
           ]}
+      },{
+        "text": {
+          "text": [
+            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
+          ]}
       },
-    #   ,{
-    #     "text": {
-    #       "text": [
-    #         random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
-    #       ]}
-    #   }
       section_chip
     ],
     "source" : 'webhook'
     }
 
-    # fm_list = payload.get('fulfillmentMessages')
-    # payload = fm_list.append(section_chip)
     return payload
 
 def send_summary(topic):
@@ -108,7 +107,7 @@ def get_sections(topic):
                 log.info('Excluding %s in section list', section)
                 break
             else:
-                section_list.append(section.title + "\n")
+                section_list.append(section.title)
         return section_list
     except Exception as e:
         log.info('Unable to fetch sections: %s', e)
@@ -130,6 +129,22 @@ def create_chip(section_list, chip_count=0):
                 []
             ]
         }}
+
+
+    main_menu_payload = {
+            "text": "Back to Main Menu",
+            "type": "button",
+            "link": "https://example.org",
+            "event": {
+                "languageCode": "en",
+                "parameters": {},
+                "name": "WELCOME"
+            },
+            "icon": {
+                "color": "#FF9800",
+                "type": "chevron_right"
+            }
+            }    
     
     ctr = 0
     for ctr in range(chip_count):
@@ -151,60 +166,11 @@ def create_chip(section_list, chip_count=0):
         rich_content_list.append(chip_payload)
         ctr += 1
 
-    return chip_base
-
-
-# def extract_ds_menus(topic):
-#     try:  
-#         # get menu
-#         topic = topic.lower()
-#         menu = utterances.menu.get(topic)
-#         # print('MENU HERE:', menu)
-#         # print('menu type:', type(menu))
-
-#     except Exception as e:
-#         log.info('unable to get topic %s', e)
+    # add menu payload
+    rich_content_list = chip_base.get('payload').get('richContent')[0]
+    rich_content_list.append(main_menu_payload)
     
-#     # force text convention
-#     ftopic = force_text_orient(topic)
-
-#     button_list = []
-#     for item in menu:
-#         button = {
-#             "payload": {
-#                 "richContent": [
-#                     [{
-#                         "subtitle": "Azure subtitle",
-#                         "image": {
-#                             "src": {
-#                                 "rawUrl": "https://example.com/images/logo.png"
-#                             }
-#                         },
-#                         "actionLink": "https://wikipedia.org/wiki/azure",
-#                         "title": item,
-#                         "type": "info"
-#                     }]
-#                 ]
-#             }
-#         }
-#         button_list.append(button)
-
-#     payload = {
-#         "fulfillmentMessages": [{
-#         "text": {
-#           "text": [
-#             random.choice(spiels.menu_handler).replace("<topic>", ftopic)
-#           ]}
-#       },
-#     button_list[0],
-#     button_list[1],
-#     button_list[2]
-#     ],
-#     "source" : 'webhook'
-#     }
-
-#     return payload
-
+    return chip_base
 
 
 
