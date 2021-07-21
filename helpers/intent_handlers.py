@@ -76,6 +76,8 @@ def select_topic(topic):
     "source" : 'webhook'
     }
 
+    fm_list = payload.get('fulfillmentMessages')
+    payload = fm_list.append(section_chip)
     return payload
 
 def send_summary(topic):
