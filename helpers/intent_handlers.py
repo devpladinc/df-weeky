@@ -52,6 +52,7 @@ def select_topic(topic):
     # parse sections
     section_str = "- ".join(sections)
     section_chip = create_chip(3)
+    print('This is section chip:', section_chip)
 
     # finalize payload
     payload = {
