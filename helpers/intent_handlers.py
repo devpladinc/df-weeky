@@ -138,9 +138,9 @@ def create_chip(chip_count=0):
             }
             }
         rich_content_list = chip_base.get('richContent')[0]
-        print('rich_content_list', rich_content_list, type(rich_content_list))
+        rich_content_list.append(chip_payload)
         
-        return chip_base
+    return chip_base
 
 
 # def extract_ds_menus(topic):
