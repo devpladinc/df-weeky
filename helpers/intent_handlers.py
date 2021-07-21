@@ -71,13 +71,14 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str)) + "\n\n" + "- " + section_str
           ]}
-      }
+      },
+      section_chip
     ],
     "source" : 'webhook'
     }
 
-    fm_list = payload.get('fulfillmentMessages')
-    payload = fm_list.append(section_chip)
+    # fm_list = payload.get('fulfillmentMessages')
+    # payload = fm_list.append(section_chip)
     return payload
 
 def send_summary(topic):
