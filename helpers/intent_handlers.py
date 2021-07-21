@@ -123,7 +123,7 @@ def create_chip(chip_count=0):
             ]
         }}
     
-    for ctr in range(len(chip_count)):
+    for ctr in range(chip_count):
         chip_payload = {
             "text": "sample button text",
             "type": "button",
