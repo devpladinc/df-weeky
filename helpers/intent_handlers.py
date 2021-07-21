@@ -137,7 +137,7 @@ def create_chip(chip_count=0):
                 "type": "chevron_right"
             }
             }
-        rich_content_list = chip_base.get('richContent')
+        rich_content_list = chip_base.get('richContent')[0]
         print('rich_content_list', rich_content_list, type(rich_content_list))
         
         return chip_base
