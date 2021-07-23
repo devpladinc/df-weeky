@@ -96,11 +96,11 @@ def send_summary(topic):
         if ".\n" in summary_data:
             print("has next page")
             summary_spaced = summary_data.replace(".\n", ".\n\n")
-            summary_chop_list = summary_spaced.split("\n\n")
+            summary_chop_list = summary_spaced.split(".\n\n")
             primary_summary = summary_chop_list[0]
             secondary_summary = summary_chop_list[1]
             return summaries
-            
+
         else:
             # parsing summary for 'see more'
             print('No next page')
