@@ -50,11 +50,11 @@ def select_topic(topic):
             # place error handling
     
     # parse summary chops
-    if type(summary) == str:
-        summary = summary
+    if type(summary) is list:
+        summary = summary[0]
     else:
         # test primary
-        summary = summary[0]
+        summary = summary
     
     # generate dynamic chip
     section_chip = create_chip(sections, 3)
@@ -102,9 +102,11 @@ def send_summary(topic):
             print('No next page')
             summary_chop_list = summary_data.split(". ")
             if len(summary_chop_list) < 8:
+                summaries = []
                 primary_summary = str(summary_chop_list[:2])
                 secondary_summary = str(summary_chop_list[3:])
-                summaries = [primary_summary, secondary_summary] 
+                summaries.append(primary_summary)
+                summaries.append(secondary_summary)
                 return summaries
         
        
