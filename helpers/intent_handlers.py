@@ -73,13 +73,13 @@ def select_topic(topic):
             random.choice(spiels.summary_spiel) + summary
           ]}
       }
-    #   ,{
-    #     "text": {
-    #       "text": [
-    #         random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
-    #       ]}
-    #   },
-    #   section_chip
+      ,{
+        "text": {
+          "text": [
+            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
+          ]}
+      }
+    #   ,section_chip
     ],
     "source" : 'webhook'
     }
