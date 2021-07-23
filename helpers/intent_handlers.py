@@ -55,8 +55,8 @@ def select_topic(topic):
         summary_parse = " ".join(summary[0])
         
         # trim until char 150
-        if len(summary_parse) > 150:
-            summary_parse = summary_parse[:150]
+        if len(summary_parse) > 1000:
+            summary_parse = summary_parse[:800]
 
     else:
         print('summary - {}'.format(type(summary)))
