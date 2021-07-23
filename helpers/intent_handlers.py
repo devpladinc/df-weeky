@@ -99,6 +99,7 @@ def send_summary(topic):
             summary_chop_list = summary_spaced.split(".\n\n")
             primary_summary = summary_chop_list[0]
             secondary_summary = summary_chop_list[1]
+            print('summaries:', summaries)
             return summaries
 
         else:
