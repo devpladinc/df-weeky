@@ -102,6 +102,7 @@ def send_summary(topic):
             print('No next page')
             summary_chop_list = summary_data.split(". ")
             if len(summary_chop_list) < 8:
+                print("choplist:", summary_chop_list)
                 summaries = []
                 primary_summary = str(summary_chop_list[:2])
                 secondary_summary = str(summary_chop_list[3:])
