@@ -96,7 +96,9 @@ def send_summary(topic):
         if ".\n" in summary_data:
             print("has next page")
             summary_spaced = summary_data.replace(".\n", ".\n\n")
+            print("spaced", summary_spaced)
             summary_chop_list = summary_spaced.split(".\n\n")
+            print("choplist", summary_chop_list)
             primary_summary = summary_chop_list[0]
             secondary_summary = summary_chop_list[1]
             print('summaries:', summaries)
