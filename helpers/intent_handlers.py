@@ -102,14 +102,24 @@ def send_summary(topic):
             print('No next page')
             summary_chop_list = summary_data.split(". ")
             print("choplist:", summary_chop_list)
-            
-            if len(summary_chop_list) < 8:
-                summaries = []
+            summaries = []
+
+            if len(summary_chop_list) < 8:    
                 primary_summary = str(summary_chop_list[:2])
                 secondary_summary = str(summary_chop_list[3:])
-                summaries.append(primary_summary)
-                summaries.append(secondary_summary)
-                return summaries
+
+            elif len(summary_chop_list) > 8 and len(summary_chop_list) < 15:
+                primary_summary = str(summary_chop_list[:5])
+                secondary_summary = str(summary_chop_list[6:])
+
+            else:
+                # more than 15
+                primary_summary = str(summary_chop_list[:7])
+                secondary_summary = str(summary_chop_list[8:])
+
+            summaries.append(primary_summary)
+            summaries.append(secondary_summary)
+            return summaries
         
        
     except Exception as e:
