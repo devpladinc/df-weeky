@@ -50,17 +50,10 @@ def select_topic(topic):
             # place error handling
     
     # parse summary chops
-    if type(summary) is list:
-        print('summary - list')
-        primary_spiel_list = summary[0]
-        secondary_spiel_list = summary[1]
-        print("Primary:", primary_spiel_list)
-        print("See more:", secondary_spiel_list)
+    primary_spiel_list = summary[0]
+    summary_parse = primary_spiel_list
+    seemore_spiel_list = summary[1]
 
-    else:
-        print('summary - {}'.format(type(summary)))
-        summary_parse = summary
-    
     # generate dynamic chip
     section_chip = create_chip(sections, 3)
     log.info('Section chip: %s', section_chip)
