@@ -51,12 +51,8 @@ def select_topic(topic):
     
     # parse summary chops
     if type(summary) is list:
-        print("this list")
-        print(len(summary))
-        print(summary)
-        summary_parse = summary
+        summary_parse = " ".join(summary[0])
     else:
-        # test primary
         summary_parse = summary
     
     # generate dynamic chip
@@ -107,17 +103,17 @@ def send_summary(topic):
             summaries = []
 
             if len(summary_chop_list) < 8:    
-                primary_summary = str(summary_chop_list[:2])
-                secondary_summary = str(summary_chop_list[3:])
+                primary_summary = summary_chop_list[:2]
+                secondary_summary = summary_chop_list[3:]
 
             elif len(summary_chop_list) > 8 and len(summary_chop_list) < 15:
-                primary_summary = str(summary_chop_list[:5])
-                secondary_summary = str(summary_chop_list[6:])
+                primary_summary = summary_chop_list[:5]
+                secondary_summary = summary_chop_list[6:]
 
             else:
                 # more than 15
-                primary_summary = str(summary_chop_list[:7])
-                secondary_summary = str(summary_chop_list[8:])
+                primary_summary = summary_chop_list[:7]
+                secondary_summary = summary_chop_list[8:]
 
             summaries.append(primary_summary)
             summaries.append(secondary_summary)
