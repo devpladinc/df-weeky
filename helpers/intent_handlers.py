@@ -53,6 +53,11 @@ def select_topic(topic):
     if type(summary) is list:
         print('summary - list')
         summary_parse = " ".join(summary[0])
+        
+        # trim until char 150
+        if len(summary_parse) > 150:
+            summary_parse = summary_parse[:150]
+
     else:
         print('summary - {}'.format(type(summary)))
         summary_parse = summary
