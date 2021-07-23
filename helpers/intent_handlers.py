@@ -52,7 +52,9 @@ def select_topic(topic):
     # parse summary chops
     if type(summary) is list:
         print("this list")
-        summary_parse = summary[0]
+        print(len(summary))
+        print(summary)
+        summary_parse = summary
     else:
         # test primary
         summary_parse = summary
@@ -102,7 +104,6 @@ def send_summary(topic):
             # parsing summary for 'see more'
             print('No next page')
             summary_chop_list = summary_data.split(". ")
-            print("choplist:", summary_chop_list)
             summaries = []
 
             if len(summary_chop_list) < 8:    
