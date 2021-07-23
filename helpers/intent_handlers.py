@@ -49,8 +49,9 @@ def select_topic(topic):
             log.info('Unable to fetch summary: %s', err)
             # place error handling
     
-    # parse sections
-    # section_str = "- ".join(sections)
+    # parse summary chops
+    len_summary = len(summary)
+    print("len_summary", len_summary)
     
     # generate dynamic chip
     section_chip = create_chip(sections, 3)
@@ -68,13 +69,14 @@ def select_topic(topic):
           "text": [
             random.choice(spiels.summary_spiel) + summary
           ]}
-      },{
-        "text": {
-          "text": [
-            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
-          ]}
-      },
-      section_chip
+      }
+    #   ,{
+    #     "text": {
+    #       "text": [
+    #         random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
+    #       ]}
+    #   },
+    #   section_chip
     ],
     "source" : 'webhook'
     }
@@ -87,9 +89,27 @@ def send_summary(topic):
     try: 
         page = wiki_bot.page(topic)
         summary_data = page.summary
-        summary = summary_data.replace(".\n", ".\n\n")
+        
+        if ".\n" in summary_data:
+            summary = summary_data.replace(".\n", ".\n\n")
+            return summary
+        else:
+            # parsing summary for 'see more'
+            summary_chop_list = summary_data.split(". ")
+            if len(summary_chop_list) < 8:
+                summary_list_1 = summary_chop_list[:4]
+                summary_list_2 = summary_chop_list[5:]
+                return  summary_list_1, summary_list_2
 
-        return summary
+            elif len(summary_chop_list) > 8 and len(summary_chop_list) < 15:
+                summary_list_1 = summary_chop_list[:4]
+                summary_list_2 = summary_chop_list[5:9]
+                summary_list_3 = summary_chop_list[10:]
+                return  summary_list_1, summary_list_2, summary_list_3
+
+            else:
+                summary = summary_chop_list[:4]
+                return summary        
        
     except Exception as e:
         log.info('Fetch summary error: %s', e)

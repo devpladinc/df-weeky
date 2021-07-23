@@ -21,5 +21,6 @@ topics = {
     'javascript' : 'Javascript (programming language)',
     'c++' : 'C++ (programming language)',
     'Logistics regression' : 'Logistic regression',
-    'power bi' : 'Microsoft Power BI'
+    'power bi' : 'Microsoft Power BI',
+    'deep learning' : 'Deep learning'
 }
