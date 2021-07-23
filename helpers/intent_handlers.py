@@ -52,8 +52,10 @@ def select_topic(topic):
     # parse summary chops
     if type(summary) is list:
         print('summary - list')
-        summary_parse = summary[0]
-        print(summary_parse)
+        primary_spiel_list = summary[0]
+        secondary_spiel_list = summary[1]
+        print("Primary:", primary_spiel_list)
+        print("See more:", secondary_spiel_list)
 
     else:
         print('summary - {}'.format(type(summary)))
