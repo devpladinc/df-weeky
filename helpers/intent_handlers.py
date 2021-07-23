@@ -51,10 +51,11 @@ def select_topic(topic):
     
     # parse summary chops
     if type(summary) is list:
-        summary = summary[0]
+        print("this list")
+        summary_parse = summary[0]
     else:
         # test primary
-        summary = summary
+        summary_parse = summary
     
     # generate dynamic chip
     section_chip = create_chip(sections, 3)
@@ -70,7 +71,7 @@ def select_topic(topic):
       },{
         "text": {
           "text": [
-            random.choice(spiels.summary_spiel) + summary
+            random.choice(spiels.summary_spiel) + summary_parse
           ]}
       }
       ,{
