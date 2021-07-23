@@ -93,36 +93,26 @@ def send_summary(topic):
         summary_data = page.summary
         summaries = []
 
-        if ".\n" in summary_data:
-            print("has next page")
-            summary_chop_list = summary_data.split(".\n")
-            print("choplist", summary_chop_list)
-            primary_summary = summary_chop_list[0]
-            secondary_summary = summary_chop_list[1]
-            print('summaries:', summaries)
-            return summaries
+        # parsing summary for 'see more'
+        print('No next page')
+        summary_chop_list = summary_data.split(". ")
+
+        if len(summary_chop_list) < 8:    
+            primary_summary = summary_chop_list[:2]
+            secondary_summary = summary_chop_list[3:]
+
+        elif len(summary_chop_list) > 8 and len(summary_chop_list) < 15:
+            primary_summary = summary_chop_list[:5]
+            secondary_summary = summary_chop_list[6:]
 
         else:
-            # parsing summary for 'see more'
-            print('No next page')
-            summary_chop_list = summary_data.split(". ")
+            # more than 15
+            primary_summary = summary_chop_list[:7]
+            secondary_summary = summary_chop_list[8:]
 
-            if len(summary_chop_list) < 8:    
-                primary_summary = summary_chop_list[:2]
-                secondary_summary = summary_chop_list[3:]
-
-            elif len(summary_chop_list) > 8 and len(summary_chop_list) < 15:
-                primary_summary = summary_chop_list[:5]
-                secondary_summary = summary_chop_list[6:]
-
-            else:
-                # more than 15
-                primary_summary = summary_chop_list[:7]
-                secondary_summary = summary_chop_list[8:]
-
-            summaries.append(primary_summary)
-            summaries.append(secondary_summary)
-            return summaries
+        summaries.append(primary_summary)
+        summaries.append(secondary_summary)
+        return summaries
         
        
     except Exception as e:
