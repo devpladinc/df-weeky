@@ -50,11 +50,8 @@ def select_topic(topic):
             # place error handling
     
     # parse summary chops
-    summary_ctr = 0
     for summary_chop in range(len(summary)):
-        summary_ctr + 1
-        print("{}. {}".format(summary_ctr, summary_chop))
-        summary_ctr += 1
+        print("{}. {}".format(summary_chop, summary[summary_chop]))
     
     # generate dynamic chip
     section_chip = create_chip(sections, 3)
@@ -102,13 +99,13 @@ def send_summary(topic):
             if len(summary_chop_list) < 8:
                 summary_list_1 = summary_chop_list[:4]
                 summary_list_2 = summary_chop_list[5:]
-                return  summary_list_1, summary_list_2
+                return  [summary_list_1, summary_list_2]
 
             elif len(summary_chop_list) > 8 and len(summary_chop_list) < 15:
                 summary_list_1 = summary_chop_list[:4]
                 summary_list_2 = summary_chop_list[5:9]
                 summary_list_3 = summary_chop_list[10:]
-                return  summary_list_1, summary_list_2, summary_list_3
+                return  [summary_list_1, summary_list_2, summary_list_3]
 
             else:
                 summary = summary_chop_list[:4]
