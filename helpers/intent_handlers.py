@@ -91,16 +91,20 @@ def send_summary(topic):
     try: 
         page = wiki_bot.page(topic)
         summary_data = page.summary
-        
+        summaries = []
+
         if ".\n" in summary_data:
             print("has next page")
-            summary = summary_data.replace(".\n", ".\n\n")
-            return summary
+            summary_spaced = summary_data.replace(".\n", ".\n\n")
+            summary_chop_list = summary_spaced.split("\n\n")
+            primary_summary = summary_chop_list[0]
+            secondary_summary = summary_chop_list[1]
+            return summaries
+            
         else:
             # parsing summary for 'see more'
             print('No next page')
             summary_chop_list = summary_data.split(". ")
-            summaries = []
 
             if len(summary_chop_list) < 8:    
                 primary_summary = summary_chop_list[:2]
