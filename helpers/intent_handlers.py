@@ -50,8 +50,11 @@ def select_topic(topic):
             # place error handling
     
     # parse summary chops
-    len_summary = len(summary)
-    print("len_summary", len_summary)
+    summary_ctr = 0
+    for summary_chop in range(len(summary)):
+        summary_ctr + 1
+        print("{}. {}".format(summary_ctr, summary_chop))
+        summary_ctr += 1
     
     # generate dynamic chip
     section_chip = create_chip(sections, 3)
