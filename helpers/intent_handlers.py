@@ -50,8 +50,11 @@ def select_topic(topic):
             # place error handling
     
     # parse summary chops
-    for summary_chop in range(len(summary)):
-        print("{}. {}".format(summary_chop, summary[summary_chop]))
+    if type(summary) == str:
+        summary = summary
+    else:
+        # test primary
+        summary = summary[0]
     
     # generate dynamic chip
     section_chip = create_chip(sections, 3)
@@ -91,25 +94,19 @@ def send_summary(topic):
         summary_data = page.summary
         
         if ".\n" in summary_data:
+            print("has next page")
             summary = summary_data.replace(".\n", ".\n\n")
             return summary
         else:
             # parsing summary for 'see more'
+            print('No next page')
             summary_chop_list = summary_data.split(". ")
             if len(summary_chop_list) < 8:
-                summary_list_1 = summary_chop_list[:4]
-                summary_list_2 = summary_chop_list[5:]
-                return  [summary_list_1, summary_list_2]
-
-            elif len(summary_chop_list) > 8 and len(summary_chop_list) < 15:
-                summary_list_1 = summary_chop_list[:4]
-                summary_list_2 = summary_chop_list[5:9]
-                summary_list_3 = summary_chop_list[10:]
-                return  [summary_list_1, summary_list_2, summary_list_3]
-
-            else:
-                summary = summary_chop_list[:4]
-                return summary        
+                primary_summary = str(summary_chop_list[:2])
+                secondary_summary = str(summary_chop_list[3:])
+                summaries = [primary_summary, secondary_summary] 
+                return summaries
+        
        
     except Exception as e:
         log.info('Fetch summary error: %s', e)
