@@ -51,8 +51,10 @@ def select_topic(topic):
     
     # parse summary chops
     if type(summary) is list:
+        print('summary - list')
         summary_parse = " ".join(summary[0])
     else:
+        print('summary - {}'.format(type(summary)))
         summary_parse = summary
     
     # generate dynamic chip
@@ -94,7 +96,6 @@ def send_summary(topic):
         summaries = []
 
         # parsing summary for 'see more'
-        print('No next page')
         summary_chop_list = summary_data.split(". ")
 
         if len(summary_chop_list) < 8:    
