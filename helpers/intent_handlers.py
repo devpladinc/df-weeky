@@ -25,9 +25,18 @@ def check_intent(action, params=''):
         
 
 def send_greetings():
+    main_chip = create_main_chips()
+
     payload = {
-        "fulfillmentText": random.choice(spiels.greetings),
-        "source": 'webhook'
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+           random.choice(spiels.greetings)
+          ]}
+      }
+      ,main_chip
+    ],
+    "source" : 'webhook'
     }
     return payload
 
@@ -57,7 +66,6 @@ def select_topic(topic):
     
     # parse summary chops
     primary_spiel_list = summary[0]
-    print(len(primary_spiel_list))
     summary_parse = " ".join(primary_spiel_list)
     
     # see more button front-end
@@ -242,3 +250,36 @@ def send_see_more():
     }
     return payload
 
+
+def create_main_chips():
+    sections = utterances.main_chips
+    
+    chip_base = {
+        "payload" :{
+        "richContent": [
+                []
+            ]
+        }
+    }
+    
+    ctr = 0
+    for ctr in range(len(sections)):
+        chip_payload = {
+            "text": sections[ctr],
+            "type": "button",
+            "event": {
+                "languageCode": "en-US",
+                "parameters": {},
+                "name": ""
+            },
+            "icon": {
+                "color": "#f252ad",
+                "type": "trending_up"
+            }
+            }
+        rich_content_list = chip_base.get('payload').get('richContent')[0]
+        rich_content_list.append(chip_payload)
+        ctr += 1
+
+    log.info('Main chips sent: %s', chip_base)
+    return chip_base

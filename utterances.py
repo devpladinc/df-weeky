@@ -24,3 +24,9 @@ topics = {
     'power bi' : 'Microsoft Power BI',
     'deep learning' : 'Deep learning'
 }
+
+main_chips = [
+    "Data science",
+    "Machine Learning",
+    "Programming"
+]
