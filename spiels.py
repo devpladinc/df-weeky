@@ -18,11 +18,11 @@ topics = [
 
 
 sections_spiel = [
-    "You can to continue exploring with the following:",
-    "What do you think about it? You can explore more by checking out the following:",
+    "You can to continue exploring <topic> with the following:",
+    "What do you think about it? You can explore more by checking out these following <topic> topics:",
     "Isn't that awesome? Check out the about topics below:",
-    "Let's continue reading shall we? Check out these topics too:",
-    "Do you want to know more? You can select with the following below:"
+    "Check out these <topic> topics too:",
+    "Do you want to know more about <topic>? You can select with the following below:"
 ]
 
 

@@ -1,9 +1,11 @@
 from flask import Flask, request, render_template
 from helpers import intent_handlers as handler
 from logs.utils import logging as log
-from flask_redis import FlaskRedis
+import redis
 
 app = Flask(__name__)
+redis_client = redis.Redis(host='127.0.0.1', port=6379, db=0)
+
 
 @app.route('/')
 def server_healthcheck():

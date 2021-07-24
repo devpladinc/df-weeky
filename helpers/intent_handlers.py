@@ -9,6 +9,7 @@ from convo_template import payload
 from logs.utils import logging as log
 from wikipediaapi import Wikipedia as wiki
 from flask_redis import FlaskRedis
+from app import redis_client as rc
 
 def check_intent(action, params=''):
     # take query and get action key 
@@ -32,20 +33,24 @@ def send_greetings():
 
 def select_topic(topic):
     # parse topic query
+
     if len(topic) > 1:
         topic_str = " ".join(topic)
     else:
         topic_str = topic[0]
-    
+
     # check topic before fetch summary and sections
     parsed_topic = utterances.topics.get(topic_str.lower())
     if parsed_topic is not None:
         summary = send_summary(parsed_topic)
         sections = get_sections(parsed_topic)
+        # redis cache topic
+        rc.set("topic", parsed_topic)
     else:
         try:
             summary = send_summary(topic_str.lower())
             sections = get_sections(topic_str.lower())
+            rc.set("topic", topic_str.lower())
         except Exception as err:
             log.info('Unable to fetch summary: %s', err)
             # place error handling
@@ -73,21 +78,19 @@ def select_topic(topic):
       },{
         "text": {
           "text": [
-            random.choice(spiels.summary_spiel) + summary_parse + "..."
+            random.choice(spiels.summary_spiel) + summary_parse + " ..."
+          ]}
+      },see_more_btn
+      ,{
+        "text": {
+          "text": [
+            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
           ]}
       }
-    #   ,{
-    #     "text": {
-    #       "text": [
-    #         random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
-    #       ]}
-    #   }
-    #   ,section_chip
-        ,see_more_btn
+      ,section_chip
     ],
     "source" : 'webhook'
     }
-
     return payload
 
 def send_summary(topic):
@@ -115,11 +118,9 @@ def send_summary(topic):
 
         summaries.append(primary_summary)
         summaries.append(secondary_summary)
-        # for see more send
-        # summaries.append(topic)
+        log.info('summaries saved: %s', len(summaries))
         return summaries
-        
-       
+    
     except Exception as e:
         log.info('Fetch summary error: %s', e)
         return e
@@ -159,35 +160,32 @@ def create_chip(section_list, chip_count=0):
             ]
         }}
 
-
     main_menu_payload = {
             "text": "Back to Main Menu",
             "type": "button",
-            "link": "https://example.org",
             "event": {
-                "languageCode": "en",
+                "languageCode": "en-US",
                 "parameters": {},
-                "name": "WELCOME"
+                "name": ""
             },
             "icon": {
-                "color": "#FF9800",
-                "type": "chevron_right"
+                "color": "#f252ad",
+                "type": "menu"
             }
-            }    
+            }
     
     ctr = 0
     for ctr in range(chip_count):
         chip_payload = {
             "text": sections[ctr],
             "type": "button",
-            "link": "https://example.org",
             "event": {
-                "languageCode": "en",
+                "languageCode": "en-US",
                 "parameters": {},
                 "name": ""
             },
             "icon": {
-                "color": "#FF9800",
+                "color": "#f252ad",
                 "type": "chevron_right"
             }
             }
@@ -202,6 +200,7 @@ def create_chip(section_list, chip_count=0):
     return chip_base
 
 def create_see_more_button():
+    # see more FE
     button_payload = {
         "payload" : {
             "richContent": [
@@ -222,20 +221,24 @@ def create_see_more_button():
         ]
         }
     }
-
     return button_payload
 
-def send_see_more(topic):
+def send_see_more():
+    # put conditional that should be matching session
+    # use redis cached topic to call see more summary
+    topic = rc.get("topic")
+    summary = " ".join(send_summary(topic)[1])
+    log.info('See more: %s', summary)
+    
     payload = {
         "fulfillmentMessages": [
       {
         "text": {
-          "text": [
+          "text": [ summary
           ]}
       }
     ],
     "source" : 'webhook'
     }
-
     return payload
 

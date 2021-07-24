@@ -1,21 +1,5 @@
-2021-07-24 07:43:12,406 WARNING   * Debugger is active!
-2021-07-24 07:43:12,409 INFO      * Debugger PIN: 933-455-903
-2021-07-24 07:43:12,451 WARNING   * Running on all addresses.
+2021-07-24 13:05:17,826 WARNING   * Debugger is active!
+2021-07-24 13:05:17,829 INFO      * Debugger PIN: 933-455-903
+2021-07-24 13:05:17,870 WARNING   * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-2021-07-24 07:43:12,451 INFO      * Running on http://192.168.1.12:5000/ (Press CTRL+C to quit)
-2021-07-24 07:46:49,977 INFO     Action check.topic
-2021-07-24 07:46:49,977 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Python_(programming_language)&explaintext=1&exsectionformat=wiki
-2021-07-24 07:46:49,983 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 07:46:50,598 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Python_%28programming_language%29&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 07:46:50,605 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Python_(programming_language)&explaintext=1&exsectionformat=wiki
-2021-07-24 07:46:50,609 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 07:46:51,200 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Python_%28programming_language%29&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 07:46:51,210 INFO     Excluding Section: See also (1):
-Python syntax and semantics
-pip (package manager)
-Differentiable programming
-Subsections (0):
- in section list
-2021-07-24 07:46:51,213 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
-2021-07-24 07:46:51,213 INFO     Section chip: {'payload': {'richContent': [[{'text': 'History', 'type': 'button', 'link': 'https://example.org', 'event': {'languageCode': 'en', 'parameters': {}, 'name': ''}, 'icon': {'color': '#FF9800', 'type': 'chevron_right'}}, {'text': 'Design philosophy and features', 'type': 'button', 'link': 'https://example.org', 'event': {'languageCode': 'en', 'parameters': {}, 'name': ''}, 'icon': {'color': '#FF9800', 'type': 'chevron_right'}}, {'text': 'Syntax and semantics', 'type': 'button', 'link': 'https://example.org', 'event': {'languageCode': 'en', 'parameters': {}, 'name': ''}, 'icon': {'color': '#FF9800', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'link': 'https://example.org', 'event': {'languageCode': 'en', 'parameters': {}, 'name': 'WELCOME'}, 'icon': {'color': '#FF9800', 'type': 'chevron_right'}}]]}}
-2021-07-24 07:46:51,214 INFO     127.0.0.1 - - [24/Jul/2021 07:46:51] "POST /webhook HTTP/1.1" 200 -
+2021-07-24 13:05:17,871 INFO      * Running on http://192.168.1.12:5000/ (Press CTRL+C to quit)
