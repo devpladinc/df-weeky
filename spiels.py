@@ -29,6 +29,6 @@ summary_spiel = [
     "Based on studies, ",
     "As per research, ",
     "According to my research, ",
-    "Research states that ",
+    "Research states that, ",
     "Based on my gathered information, "
 ]

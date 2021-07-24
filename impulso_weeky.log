@@ -1,8 +1,75 @@
-2021-07-24 13:43:33,925 WARNING   * Debugger is active!
-2021-07-24 13:43:33,929 INFO      * Debugger PIN: 933-455-903
-2021-07-24 13:43:33,971 WARNING   * Running on all addresses.
+2021-07-24 15:39:48,433 WARNING   * Debugger is active!
+2021-07-24 15:39:48,436 INFO      * Debugger PIN: 933-455-903
+2021-07-24 15:39:48,478 WARNING   * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-2021-07-24 13:43:33,971 INFO      * Running on http://192.168.1.12:5000/ (Press CTRL+C to quit)
-2021-07-24 13:43:36,949 INFO     127.0.0.1 - - [24/Jul/2021 13:43:36] "GET / HTTP/1.1" 200 -
-2021-07-24 13:43:38,486 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
-2021-07-24 13:43:38,487 INFO     127.0.0.1 - - [24/Jul/2021 13:43:38] "POST /webhook HTTP/1.1" 200 -
+2021-07-24 15:39:48,478 INFO      * Running on http://192.168.1.12:5000/ (Press CTRL+C to quit)
+2021-07-24 15:39:51,227 INFO     127.0.0.1 - - [24/Jul/2021 15:39:51] "GET / HTTP/1.1" 200 -
+2021-07-24 15:39:53,098 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
+2021-07-24 15:39:53,098 INFO     127.0.0.1 - - [24/Jul/2021 15:39:53] "POST /webhook HTTP/1.1" 200 -
+2021-07-24 15:39:57,749 INFO     Action check.programming
+2021-07-24 15:39:57,751 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Programming Language&explaintext=1&exsectionformat=wiki
+2021-07-24 15:39:57,765 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-24 15:39:58,364 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Programming+Language&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-24 15:39:58,379 INFO     summaries saved: 2
+2021-07-24 15:39:58,385 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Programming Language&explaintext=1&exsectionformat=wiki
+2021-07-24 15:39:58,390 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-24 15:39:59,022 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Programming+Language&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-24 15:39:59,038 INFO     Excluding Section: See also (1):
+
+Subsections (0):
+ in section list
+2021-07-24 15:39:59,052 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-24 15:39:59,053 INFO     Section chip: {'payload': {'richContent': [[{'text': 'Definitions', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'History', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Elements', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
+2021-07-24 15:39:59,055 INFO     127.0.0.1 - - [24/Jul/2021 15:39:59] "POST /webhook HTTP/1.1" 200 -
+2021-07-24 15:40:21,661 INFO     Action check.see.more
+2021-07-24 15:40:21,663 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=b'programming language'&explaintext=1&exsectionformat=wiki
+2021-07-24 15:40:21,665 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-24 15:40:22,237 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=programming+language&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-24 15:40:22,249 INFO     summaries saved: 2
+2021-07-24 15:40:22,253 INFO     See more: the desired result is specified, not how to achieve it).
+The description of a programming language is usually split into the two components of syntax (form) and semantics (meaning) Some languages are defined by a specification document (for example, the C programming language is specified by an ISO Standard) while other languages (such as Perl) have a dominant implementation that is treated as a reference Some languages have both, with the basic language defined by a standard and extensions taken from the dominant implementation being common 
+Programming language theory is a subfield of computer science which deals with the design, implementation, analysis, characterization, and classification of programming languages.
+2021-07-24 15:40:22,254 INFO     127.0.0.1 - - [24/Jul/2021 15:40:22] "POST /webhook HTTP/1.1" 200 -
+2021-07-24 15:41:11,135 INFO     Action check.topic
+2021-07-24 15:41:11,136 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Python_(programming_language)&explaintext=1&exsectionformat=wiki
+2021-07-24 15:41:11,147 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-24 15:41:11,718 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Python_%28programming_language%29&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-24 15:41:11,730 INFO     summaries saved: 2
+2021-07-24 15:41:11,734 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Python_(programming_language)&explaintext=1&exsectionformat=wiki
+2021-07-24 15:41:11,739 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-24 15:41:12,324 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Python_%28programming_language%29&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-24 15:41:12,337 INFO     Excluding Section: See also (1):
+Python syntax and semantics
+pip (package manager)
+Differentiable programming
+Subsections (0):
+ in section list
+2021-07-24 15:41:12,343 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-24 15:41:12,344 INFO     Section chip: {'payload': {'richContent': [[{'text': 'History', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Design philosophy and features', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Syntax and semantics', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
+2021-07-24 15:41:12,345 INFO     127.0.0.1 - - [24/Jul/2021 15:41:12] "POST /webhook HTTP/1.1" 200 -
+2021-07-24 15:41:31,529 INFO     Action check.topic
+2021-07-24 15:41:31,529 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Linear Regression&explaintext=1&exsectionformat=wiki
+2021-07-24 15:41:31,535 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-24 15:41:32,184 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Linear+Regression&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-24 15:41:32,374 INFO     summaries saved: 2
+2021-07-24 15:41:32,380 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Linear Regression&explaintext=1&exsectionformat=wiki
+2021-07-24 15:41:32,388 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-24 15:41:32,941 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Linear+Regression&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-24 15:41:33,142 INFO     Excluding Section: See also (1):
+
+Subsections (0):
+ in section list
+2021-07-24 15:41:33,147 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-24 15:41:33,147 INFO     Section chip: {'payload': {'richContent': [[{'text': 'Formulation', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Extensions', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Estimation methods', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
+2021-07-24 15:41:33,148 INFO     127.0.0.1 - - [24/Jul/2021 15:41:33] "POST /webhook HTTP/1.1" 200 -
+2021-07-24 15:41:40,679 INFO     Action check.see.more
+2021-07-24 15:41:40,685 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=b'linear regression'&explaintext=1&exsectionformat=wiki
+2021-07-24 15:41:40,691 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-24 15:41:41,256 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=linear+regression&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-24 15:41:41,462 INFO     summaries saved: 2
+2021-07-24 15:41:41,463 INFO     See more: This is because models which depend linearly on their unknown parameters are easier to fit than models which are non-linearly related to their parameters and because the statistical properties of the resulting estimators are easier to determine.
+Linear regression has many practical uses Most applications fall into one of the following two broad categories:
+
+If the goal is prediction, forecasting, or error reduction, linear regression can be used to fit a predictive model to an observed data set of values of the response and explanatory variables After developing such a model, if additional values of the explanatory variables are collected without an accompanying response value, the fitted model can be used to make a prediction of the response.
+If the goal is to explain variation in the response variable that can be attributed to variation in the explanatory variables, linear regression analysis can be applied to quantify the strength of the relationship between the response and the explanatory variables, and in particular to determine whether some explanatory variables may have no linear relationship with the response at all, or to identify which subsets of explanatory variables may contain redundant information about the response.Linear regression models are often fitted using the least squares approach, but they may also be fitted in other ways, such as by minimizing the "lack of fit" in some other norm (as with least absolute deviations regression), or by minimizing a penalized version of the least squares cost function as in ridge regression (L2-norm penalty) and lasso (L1-norm penalty) Conversely, the least squares approach can be used to fit models that are not linear models
+2021-07-24 15:41:41,463 INFO     127.0.0.1 - - [24/Jul/2021 15:41:41] "POST /webhook HTTP/1.1" 200 -

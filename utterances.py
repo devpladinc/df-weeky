@@ -25,8 +25,8 @@ topics = {
     'deep learning' : 'Deep learning'
 }
 
-main_chips = [
-    "Data science",
-    "Machine Learning",
-    "Programming"
-]
+main_chips = {
+    "Data science" : "ds-landing",
+    "Machine Learning" : "ml-landing",
+    "Programming" : "pl-landing"
+}

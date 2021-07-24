@@ -34,6 +34,13 @@ def webhook():
       params = params.get('topic')
     if action == 'check.see.more':
       params = ""
+    if action == 'check.data.science':
+      params = ["Data science"]
+    if action == 'check.machine.learning':
+      params = ["Machine Learning"]
+    if action == 'check.programming':
+      params = ["Programming language"]
+    
   
   spiel =  handler.check_intent(action, params)
 

@@ -16,7 +16,10 @@ def check_intent(action, params=''):
     intent_dict = {
         'input.welcome' : send_greetings,
         'check.topic' : select_topic,
-        'check.see.more' : send_see_more
+        'check.see.more' : send_see_more,
+        'check.data.science' : select_topic,
+        'check.machine.learning' : select_topic,
+        'check.programming' : select_topic
     }
     try:
         return intent_dict[action]()
@@ -41,8 +44,7 @@ def send_greetings():
     return payload
 
 def select_topic(topic):
-    # parse topic query
-
+    
     if len(topic) > 1:
         topic_str = " ".join(topic)
     else:
@@ -57,8 +59,8 @@ def select_topic(topic):
         rc.set("topic", parsed_topic)
     else:
         try:
-            summary = send_summary(topic_str.lower())
-            sections = get_sections(topic_str.lower())
+            summary = send_summary(topic_str.title())
+            sections = get_sections(topic_str.title())
             rc.set("topic", topic_str.lower())
         except Exception as err:
             log.info('Unable to fetch summary: %s', err)
@@ -118,11 +120,11 @@ def send_summary(topic):
 
         elif len(summary_chop_list) > 8 and len(summary_chop_list) < 15:
             primary_summary = summary_chop_list[:5]
-            secondary_summary = summary_chop_list[6:]
+            secondary_summary = summary_chop_list[6:10]
 
         else:
             primary_summary = summary_chop_list[:4]
-            secondary_summary = summary_chop_list[5:]
+            secondary_summary = summary_chop_list[4:8]
 
         summaries.append(primary_summary)
         summaries.append(secondary_summary)
@@ -252,8 +254,9 @@ def send_see_more():
 
 
 def create_main_chips():
-    sections = utterances.main_chips
-    
+    sections = [str(sec) for sec in utterances.main_chips.keys()]
+    section_actions = [str(sec) for sec in utterances.main_chips.values()]
+
     chip_base = {
         "payload" :{
         "richContent": [
@@ -270,7 +273,7 @@ def create_main_chips():
             "event": {
                 "languageCode": "en-US",
                 "parameters": {},
-                "name": ""
+                "name": section_actions[ctr]
             },
             "icon": {
                 "color": "#f252ad",
