@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from helpers import intent_handlers as handler
 from logs.utils import logging as log
+from flask_redis import FlaskRedis
 
 app = Flask(__name__)
 
@@ -13,7 +14,8 @@ def server_healthcheck():
 def webhook():
   req = request.get_json(silent=True, force=True)
   query_response = req.get('queryResult')
-  
+  print("query response:", query_response)
+
   try:
     action = query_response.get('action')
     spiel =  handler.check_intent(action)
@@ -25,14 +27,16 @@ def webhook():
     
     action = intent_name.get('displayName')
     log.info('Action %s', action)
-
+    
     if action == 'check.topic':
       params = params.get('topic')
+    if action == 'check.see.more':
+      params = ""
   
   spiel =  handler.check_intent(action, params)
 
   return spiel
    
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=8080)
+  app.run(host='0.0.0.0', port=5000, debug=True)
   # app.run(host='0.0.0.0', port=port)

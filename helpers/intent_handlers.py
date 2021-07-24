@@ -8,13 +8,14 @@ import utterances
 from convo_template import payload
 from logs.utils import logging as log
 from wikipediaapi import Wikipedia as wiki
-
+from flask_redis import FlaskRedis
 
 def check_intent(action, params=''):
     # take query and get action key 
     intent_dict = {
         'input.welcome' : send_greetings,
-        'check.topic' : select_topic
+        'check.topic' : select_topic,
+        'check.see.more' : send_see_more
     }
     try:
         return intent_dict[action]()
@@ -51,8 +52,12 @@ def select_topic(topic):
     
     # parse summary chops
     primary_spiel_list = summary[0]
-    summary_parse = primary_spiel_list
-    seemore_spiel_list = summary[1]
+    print(len(primary_spiel_list))
+    summary_parse = " ".join(primary_spiel_list)
+    
+    # see more button front-end
+    see_more_btn = create_see_more_button()
+    log.info('See more btn %s', see_more_btn)
 
     # generate dynamic chip
     section_chip = create_chip(sections, 3)
@@ -68,16 +73,17 @@ def select_topic(topic):
       },{
         "text": {
           "text": [
-            random.choice(spiels.summary_spiel) + summary_parse
+            random.choice(spiels.summary_spiel) + summary_parse + "..."
           ]}
       }
-      ,{
-        "text": {
-          "text": [
-            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
-          ]}
-      }
+    #   ,{
+    #     "text": {
+    #       "text": [
+    #         random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
+    #       ]}
+    #   }
     #   ,section_chip
+        ,see_more_btn
     ],
     "source" : 'webhook'
     }
@@ -104,12 +110,13 @@ def send_summary(topic):
             secondary_summary = summary_chop_list[6:]
 
         else:
-            # more than 15
-            primary_summary = summary_chop_list[:7]
-            secondary_summary = summary_chop_list[8:]
+            primary_summary = summary_chop_list[:4]
+            secondary_summary = summary_chop_list[5:]
 
         summaries.append(primary_summary)
         summaries.append(secondary_summary)
+        # for see more send
+        # summaries.append(topic)
         return summaries
         
        
@@ -194,6 +201,41 @@ def create_chip(section_list, chip_count=0):
     
     return chip_base
 
+def create_see_more_button():
+    button_payload = {
+        "payload" : {
+            "richContent": [
+            [
+            {
+                "type": "button",
+                "icon": {
+                "type": "check_circle",
+                "color": "#f252ad"
+                },
+                "text": "See more description",
+                "event": {
+                    "name": "see-more",
+                    "languageCode": "en-US",
+                }
+            }
+            ]
+        ]
+        }
+    }
 
+    return button_payload
 
+def send_see_more(topic):
+    payload = {
+        "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+          ]}
+      }
+    ],
+    "source" : 'webhook'
+    }
+
+    return payload
 
