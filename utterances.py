@@ -22,7 +22,10 @@ topics = {
     'c++' : 'C++ (programming language)',
     'Logistics regression' : 'Logistic regression',
     'power bi' : 'Microsoft Power BI',
-    'deep learning' : 'Deep learning'
+    'deep learning' : 'Deep learning',
+    'machine learning' : 'Machine learning',
+    'programming' : 'Programming language',
+    'k-means clustering' : 'K-means_clustering'
 }
 
 main_chips = {

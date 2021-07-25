@@ -1,75 +1,120 @@
-2021-07-24 15:39:48,433 WARNING   * Debugger is active!
-2021-07-24 15:39:48,436 INFO      * Debugger PIN: 933-455-903
-2021-07-24 15:39:48,478 WARNING   * Running on all addresses.
+2021-07-26 06:30:42,057 WARNING   * Debugger is active!
+2021-07-26 06:30:42,068 INFO      * Debugger PIN: 933-455-903
+2021-07-26 06:30:42,176 WARNING   * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-2021-07-24 15:39:48,478 INFO      * Running on http://192.168.1.12:5000/ (Press CTRL+C to quit)
-2021-07-24 15:39:51,227 INFO     127.0.0.1 - - [24/Jul/2021 15:39:51] "GET / HTTP/1.1" 200 -
-2021-07-24 15:39:53,098 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
-2021-07-24 15:39:53,098 INFO     127.0.0.1 - - [24/Jul/2021 15:39:53] "POST /webhook HTTP/1.1" 200 -
-2021-07-24 15:39:57,749 INFO     Action check.programming
-2021-07-24 15:39:57,751 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Programming Language&explaintext=1&exsectionformat=wiki
-2021-07-24 15:39:57,765 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 15:39:58,364 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Programming+Language&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 15:39:58,379 INFO     summaries saved: 2
-2021-07-24 15:39:58,385 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Programming Language&explaintext=1&exsectionformat=wiki
-2021-07-24 15:39:58,390 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 15:39:59,022 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Programming+Language&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 15:39:59,038 INFO     Excluding Section: See also (1):
-
+2021-07-26 06:30:42,176 INFO      * Running on http://192.168.1.12:5000/ (Press CTRL+C to quit)
+2021-07-26 06:30:55,236 INFO     Action check.topic
+2021-07-26 06:30:55,237 INFO     Suggestion chips: {'payload': {'richContent': [[{'text': 'python', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'deep learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
+2021-07-26 06:30:55,238 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=python&explaintext=1&exsectionformat=wiki
+2021-07-26 06:30:55,256 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:30:55,770 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=python&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 919
+2021-07-26 06:30:55,775 INFO     summaries saved: 2
+2021-07-26 06:30:55,780 INFO     summary lists [['Python may refer to:\n\nPythons or Pythonidae, a family of nonvenomous snakes found in Africa, Asia, and Australia\nPython (genus), a genus of nonvenomous Pythonidae found in Africa and Asia'], []]
+2021-07-26 06:30:55,781 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=deep learning&explaintext=1&exsectionformat=wiki
+2021-07-26 06:30:55,789 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:30:56,395 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=deep+learning&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:30:56,627 INFO     summaries saved: 2
+2021-07-26 06:30:56,634 INFO     summary lists [['Deep learning  (also known as deep structured learning) is part of a broader family of machine learning methods based on artificial neural networks with representation learning', 'Learning can be supervised, semi-supervised or unsupervised.Deep-learning architectures such as deep neural networks, deep belief networks, deep reinforcement learning, recurrent neural networks and convolutional neural networks have been applied to fields including computer vision, speech recognition, natural language processing, machine translation, bioinformatics, drug design, medical image analysis, material inspection and board game programs, where they have produced results comparable to and in some cases surpassing human expert performance.Artificial neural networks (ANNs) were inspired by information processing and distributed communication nodes in biological systems'], [' Specifically, neural networks tend to be static and symbolic, while the biological brain of most living organisms is dynamic (plastic) and analogue.The adjective "deep" in deep learning refers to the use of multiple layers in the network', 'Early work showed that a linear perceptron cannot be a universal classifier, but that a network with a nonpolynomial activation function with one hidden layer of unbounded width can', 'Deep learning is a modern variation which is concerned with an unbounded number of layers of bounded size, which permits practical application and optimized implementation, while retaining theoretical universality under mild conditions', 'In deep learning the layers are also permitted to be heterogeneous and to deviate widely from biologically informed connectionist models, for the sake of efficiency, trainability and understandability, whence the "structured" part.']]
+2021-07-26 06:30:56,637 INFO     127.0.0.1 - - [26/Jul/2021 06:30:56] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:33:13,571 INFO     127.0.0.1 - - [26/Jul/2021 06:33:13] "GET / HTTP/1.1" 200 -
+2021-07-26 06:33:14,828 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
+2021-07-26 06:33:14,829 INFO     127.0.0.1 - - [26/Jul/2021 06:33:14] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:36:31,955 INFO     Action check.topic
+2021-07-26 06:36:31,956 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Python_(programming_language)&explaintext=1&exsectionformat=wiki
+2021-07-26 06:36:31,965 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:36:32,567 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Python_%28programming_language%29&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:36:32,581 INFO     summaries saved: 2
+2021-07-26 06:36:32,598 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-26 06:36:32,601 INFO     127.0.0.1 - - [26/Jul/2021 06:36:32] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:36:49,773 INFO     Action check.topic-no
+2021-07-26 06:36:49,775 INFO     127.0.0.1 - - [26/Jul/2021 06:36:49] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:36:56,630 INFO     Action check-topic-backmenu
+2021-07-26 06:36:56,631 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
+2021-07-26 06:36:56,633 INFO     127.0.0.1 - - [26/Jul/2021 06:36:56] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:38:26,338 INFO     Action check.topic
+2021-07-26 06:38:26,340 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=microsoft azure&explaintext=1&exsectionformat=wiki
+2021-07-26 06:38:26,347 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:38:27,051 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=microsoft+azure&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:38:27,058 INFO     summaries saved: 2
+2021-07-26 06:38:27,068 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-26 06:38:27,072 INFO     127.0.0.1 - - [26/Jul/2021 06:38:27] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:38:39,545 INFO     Action check.topic-yes
+2021-07-26 06:38:39,551 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=b'microsoft azure'&explaintext=1&exsectionformat=wiki
+2021-07-26 06:38:39,562 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:38:40,261 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=microsoft+azure&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:38:40,267 INFO     Excluding Section: See also (1):
+Cloud computing comparison
+Comparison of file hosting services
+Azure Dev Tools for Teaching
+CBL-Mariner
 Subsections (0):
  in section list
-2021-07-24 15:39:59,052 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
-2021-07-24 15:39:59,053 INFO     Section chip: {'payload': {'richContent': [[{'text': 'Definitions', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'History', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Elements', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
-2021-07-24 15:39:59,055 INFO     127.0.0.1 - - [24/Jul/2021 15:39:59] "POST /webhook HTTP/1.1" 200 -
-2021-07-24 15:40:21,661 INFO     Action check.see.more
-2021-07-24 15:40:21,663 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=b'programming language'&explaintext=1&exsectionformat=wiki
-2021-07-24 15:40:21,665 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 15:40:22,237 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=programming+language&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 15:40:22,249 INFO     summaries saved: 2
-2021-07-24 15:40:22,253 INFO     See more: the desired result is specified, not how to achieve it).
-The description of a programming language is usually split into the two components of syntax (form) and semantics (meaning) Some languages are defined by a specification document (for example, the C programming language is specified by an ISO Standard) while other languages (such as Perl) have a dominant implementation that is treated as a reference Some languages have both, with the basic language defined by a standard and extensions taken from the dominant implementation being common 
-Programming language theory is a subfield of computer science which deals with the design, implementation, analysis, characterization, and classification of programming languages.
-2021-07-24 15:40:22,254 INFO     127.0.0.1 - - [24/Jul/2021 15:40:22] "POST /webhook HTTP/1.1" 200 -
-2021-07-24 15:41:11,135 INFO     Action check.topic
-2021-07-24 15:41:11,136 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Python_(programming_language)&explaintext=1&exsectionformat=wiki
-2021-07-24 15:41:11,147 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 15:41:11,718 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Python_%28programming_language%29&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 15:41:11,730 INFO     summaries saved: 2
-2021-07-24 15:41:11,734 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Python_(programming_language)&explaintext=1&exsectionformat=wiki
-2021-07-24 15:41:11,739 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 15:41:12,324 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Python_%28programming_language%29&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 15:41:12,337 INFO     Excluding Section: See also (1):
-Python syntax and semantics
-pip (package manager)
-Differentiable programming
-Subsections (0):
- in section list
-2021-07-24 15:41:12,343 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
-2021-07-24 15:41:12,344 INFO     Section chip: {'payload': {'richContent': [[{'text': 'History', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Design philosophy and features', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Syntax and semantics', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
-2021-07-24 15:41:12,345 INFO     127.0.0.1 - - [24/Jul/2021 15:41:12] "POST /webhook HTTP/1.1" 200 -
-2021-07-24 15:41:31,529 INFO     Action check.topic
-2021-07-24 15:41:31,529 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Linear Regression&explaintext=1&exsectionformat=wiki
-2021-07-24 15:41:31,535 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 15:41:32,184 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Linear+Regression&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 15:41:32,374 INFO     summaries saved: 2
-2021-07-24 15:41:32,380 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Linear Regression&explaintext=1&exsectionformat=wiki
-2021-07-24 15:41:32,388 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 15:41:32,941 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Linear+Regression&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 15:41:33,142 INFO     Excluding Section: See also (1):
-
-Subsections (0):
- in section list
-2021-07-24 15:41:33,147 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
-2021-07-24 15:41:33,147 INFO     Section chip: {'payload': {'richContent': [[{'text': 'Formulation', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Extensions', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Estimation methods', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
-2021-07-24 15:41:33,148 INFO     127.0.0.1 - - [24/Jul/2021 15:41:33] "POST /webhook HTTP/1.1" 200 -
-2021-07-24 15:41:40,679 INFO     Action check.see.more
-2021-07-24 15:41:40,685 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=b'linear regression'&explaintext=1&exsectionformat=wiki
-2021-07-24 15:41:40,691 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
-2021-07-24 15:41:41,256 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=linear+regression&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
-2021-07-24 15:41:41,462 INFO     summaries saved: 2
-2021-07-24 15:41:41,463 INFO     See more: This is because models which depend linearly on their unknown parameters are easier to fit than models which are non-linearly related to their parameters and because the statistical properties of the resulting estimators are easier to determine.
-Linear regression has many practical uses Most applications fall into one of the following two broad categories:
-
-If the goal is prediction, forecasting, or error reduction, linear regression can be used to fit a predictive model to an observed data set of values of the response and explanatory variables After developing such a model, if additional values of the explanatory variables are collected without an accompanying response value, the fitted model can be used to make a prediction of the response.
-If the goal is to explain variation in the response variable that can be attributed to variation in the explanatory variables, linear regression analysis can be applied to quantify the strength of the relationship between the response and the explanatory variables, and in particular to determine whether some explanatory variables may have no linear relationship with the response at all, or to identify which subsets of explanatory variables may contain redundant information about the response.Linear regression models are often fitted using the least squares approach, but they may also be fitted in other ways, such as by minimizing the "lack of fit" in some other norm (as with least absolute deviations regression), or by minimizing a penalized version of the least squares cost function as in ridge regression (L2-norm penalty) and lasso (L1-norm penalty) Conversely, the least squares approach can be used to fit models that are not linear models
-2021-07-24 15:41:41,463 INFO     127.0.0.1 - - [24/Jul/2021 15:41:41] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:38:40,272 INFO     Section chip: {'payload': {'richContent': [[{'text': 'Services', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Regional expansion and examples', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Design', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
+2021-07-26 06:38:40,275 INFO     127.0.0.1 - - [26/Jul/2021 06:38:40] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:39:29,282 INFO     127.0.0.1 - - [26/Jul/2021 06:39:29] "GET / HTTP/1.1" 200 -
+2021-07-26 06:39:31,257 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
+2021-07-26 06:39:31,259 INFO     127.0.0.1 - - [26/Jul/2021 06:39:31] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:39:48,252 INFO     Action check.topic
+2021-07-26 06:39:48,253 INFO     Suggestion chips: {'payload': {'richContent': [[{'text': 'python', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'deep learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'chevron_right'}}, {'text': 'Back to Main Menu', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': ''}, 'icon': {'color': '#f252ad', 'type': 'menu'}}]]}}
+2021-07-26 06:39:48,255 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=python&explaintext=1&exsectionformat=wiki
+2021-07-26 06:39:48,265 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:39:48,768 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=python&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 919
+2021-07-26 06:39:48,772 INFO     summaries saved: 2
+2021-07-26 06:39:48,777 INFO     summary lists [['Python may refer to:\n\nPythons or Pythonidae, a family of nonvenomous snakes found in Africa, Asia, and Australia\nPython (genus), a genus of nonvenomous Pythonidae found in Africa and Asia'], []]
+2021-07-26 06:39:48,778 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=deep learning&explaintext=1&exsectionformat=wiki
+2021-07-26 06:39:48,785 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:39:49,413 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=deep+learning&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:39:49,694 INFO     summaries saved: 2
+2021-07-26 06:39:49,699 INFO     summary lists [['Deep learning  (also known as deep structured learning) is part of a broader family of machine learning methods based on artificial neural networks with representation learning', 'Learning can be supervised, semi-supervised or unsupervised.Deep-learning architectures such as deep neural networks, deep belief networks, deep reinforcement learning, recurrent neural networks and convolutional neural networks have been applied to fields including computer vision, speech recognition, natural language processing, machine translation, bioinformatics, drug design, medical image analysis, material inspection and board game programs, where they have produced results comparable to and in some cases surpassing human expert performance.Artificial neural networks (ANNs) were inspired by information processing and distributed communication nodes in biological systems'], [' Specifically, neural networks tend to be static and symbolic, while the biological brain of most living organisms is dynamic (plastic) and analogue.The adjective "deep" in deep learning refers to the use of multiple layers in the network', 'Early work showed that a linear perceptron cannot be a universal classifier, but that a network with a nonpolynomial activation function with one hidden layer of unbounded width can', 'Deep learning is a modern variation which is concerned with an unbounded number of layers of bounded size, which permits practical application and optimized implementation, while retaining theoretical universality under mild conditions', 'In deep learning the layers are also permitted to be heterogeneous and to deviate widely from biologically informed connectionist models, for the sake of efficiency, trainability and understandability, whence the "structured" part.']]
+2021-07-26 06:39:49,701 INFO     127.0.0.1 - - [26/Jul/2021 06:39:49] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:41:09,650 INFO     Action check.topic
+2021-07-26 06:41:09,651 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Linear Regression&explaintext=1&exsectionformat=wiki
+2021-07-26 06:41:09,658 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:41:11,814 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Linear+Regression&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:41:11,965 INFO     summaries saved: 2
+2021-07-26 06:41:11,977 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-26 06:41:11,979 INFO     127.0.0.1 - - [26/Jul/2021 06:41:11] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:41:28,302 INFO     Action check.topic
+2021-07-26 06:41:28,303 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Deep learning&explaintext=1&exsectionformat=wiki
+2021-07-26 06:41:28,310 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:41:29,018 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Deep+learning&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:41:29,225 INFO     summaries saved: 2
+2021-07-26 06:41:29,235 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-26 06:41:29,236 INFO     127.0.0.1 - - [26/Jul/2021 06:41:29] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:41:44,175 INFO     Action check.topic
+2021-07-26 06:41:44,176 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Machine learning&explaintext=1&exsectionformat=wiki
+2021-07-26 06:41:44,186 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:41:44,891 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Machine+learning&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:41:44,989 INFO     summaries saved: 2
+2021-07-26 06:41:45,002 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-26 06:41:45,004 INFO     127.0.0.1 - - [26/Jul/2021 06:41:45] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:41:52,988 INFO     127.0.0.1 - - [26/Jul/2021 06:41:52] "GET / HTTP/1.1" 200 -
+2021-07-26 06:41:54,413 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
+2021-07-26 06:41:54,416 INFO     127.0.0.1 - - [26/Jul/2021 06:41:54] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:42:02,094 INFO     Action check.topic
+2021-07-26 06:42:02,095 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Machine learning&explaintext=1&exsectionformat=wiki
+2021-07-26 06:42:02,102 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:42:02,811 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=Machine+learning&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:42:02,918 INFO     summaries saved: 2
+2021-07-26 06:42:02,926 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-26 06:42:02,929 INFO     127.0.0.1 - - [26/Jul/2021 06:42:02] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:43:18,262 INFO     127.0.0.1 - - [26/Jul/2021 06:43:18] "GET / HTTP/1.1" 200 -
+2021-07-26 06:43:19,511 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
+2021-07-26 06:43:19,513 INFO     127.0.0.1 - - [26/Jul/2021 06:43:19] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:43:34,018 INFO     Action check.topic
+2021-07-26 06:43:34,077 INFO     127.0.0.1 - - [26/Jul/2021 06:43:34] "[35m[1mPOST /webhook HTTP/1.1[0m" 500 -
+2021-07-26 06:43:48,283 INFO     Action check.topic
+2021-07-26 06:43:48,283 INFO     Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=K-means_clustering&explaintext=1&exsectionformat=wiki
+2021-07-26 06:43:48,289 DEBUG    Starting new HTTPS connection (1): en.wikipedia.org:443
+2021-07-26 06:43:49,922 DEBUG    https://en.wikipedia.org:443 "GET /w/api.php?action=query&prop=extracts&titles=K-means_clustering&explaintext=1&exsectionformat=wiki&format=json&redirects=1 HTTP/1.1" 200 None
+2021-07-26 06:43:50,129 INFO     summaries saved: 2
+2021-07-26 06:43:50,141 INFO     See more btn {'payload': {'richContent': [[{'type': 'button', 'icon': {'type': 'check_circle', 'color': '#f252ad'}, 'text': 'See more description', 'event': {'name': 'see-more', 'languageCode': 'en-US'}}]]}}
+2021-07-26 06:43:50,143 INFO     127.0.0.1 - - [26/Jul/2021 06:43:50] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:43:59,548 INFO     Action check.topic-no
+2021-07-26 06:43:59,550 INFO     127.0.0.1 - - [26/Jul/2021 06:43:59] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:44:16,299 INFO     Action check-topic-backmenu
+2021-07-26 06:44:16,300 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
+2021-07-26 06:44:16,301 INFO     127.0.0.1 - - [26/Jul/2021 06:44:16] "POST /webhook HTTP/1.1" 200 -
+2021-07-26 06:50:04,102 INFO     127.0.0.1 - - [26/Jul/2021 06:50:04] "GET / HTTP/1.1" 200 -
+2021-07-26 06:50:05,941 INFO     Main chips sent: {'payload': {'richContent': [[{'text': 'Data science', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ds-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Machine Learning', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'ml-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}, {'text': 'Programming', 'type': 'button', 'event': {'languageCode': 'en-US', 'parameters': {}, 'name': 'pl-landing'}, 'icon': {'color': '#f252ad', 'type': 'trending_up'}}]]}}
+2021-07-26 06:50:05,943 INFO     127.0.0.1 - - [26/Jul/2021 06:50:05] "POST /webhook HTTP/1.1" 200 -

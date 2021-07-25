@@ -16,6 +16,10 @@ def check_intent(action, params=''):
     intent_dict = {
         'input.welcome' : send_greetings,
         'check.topic' : select_topic,
+        'check.topic-yes' : send_section_chips,
+        'check.topic-no' : ask_back_menu,
+        'check-topic-backmenu' : send_greetings,
+        'check.topic-stay' : send_stay_topic,
         'check.see.more' : send_see_more,
         'check.data.science' : select_topic,
         'check.machine.learning' : select_topic,
@@ -28,6 +32,8 @@ def check_intent(action, params=''):
         
 
 def send_greetings():
+    # create main chips
+    # create new session redis
     main_chip = create_main_chips()
 
     payload = {
@@ -46,37 +52,35 @@ def send_greetings():
 def select_topic(topic):
     
     if len(topic) > 1:
-        topic_str = " ".join(topic)
+        # dynamic handling
+        # suggestion spiel - send topic as list
+        # topic_str = " ".join(topic)
+        suggested_chips = suggest_topics(topic)
+        return suggested_chips
     else:
         topic_str = topic[0]
 
-    # check topic before fetch summary and sections
+    # check topic text orient before fetch summary
     parsed_topic = utterances.topics.get(topic_str.lower())
     if parsed_topic is not None:
         summary = send_summary(parsed_topic)
-        sections = get_sections(parsed_topic)
-        # redis cache topic
+        # cache save topic
         rc.set("topic", parsed_topic)
     else:
         try:
             summary = send_summary(topic_str.title())
-            sections = get_sections(topic_str.title())
             rc.set("topic", topic_str.lower())
         except Exception as err:
             log.info('Unable to fetch summary: %s', err)
             # place error handling
     
-    # parse summary chops
+    # parse summary (list) chops
     primary_spiel_list = summary[0]
     summary_parse = " ".join(primary_spiel_list)
     
     # see more button front-end
     see_more_btn = create_see_more_button()
     log.info('See more btn %s', see_more_btn)
-
-    # generate dynamic chip
-    section_chip = create_chip(sections, 3)
-    log.info('Section chip: %s', section_chip)
 
     # finalize payload
     payload = {
@@ -94,10 +98,9 @@ def select_topic(topic):
       ,{
         "text": {
           "text": [
-            random.choice(spiels.sections_spiel).replace("<topic>", force_text_orient(topic_str))
+           "Do you want to know more about " + force_text_orient(topic_str) + "?"
           ]}
       }
-      ,section_chip
     ],
     "source" : 'webhook'
     }
@@ -136,6 +139,7 @@ def send_summary(topic):
         return e
 
 def get_sections(topic):
+    # sections title saving
     wiki_bot = wiki('en')
     page = wiki_bot.page(topic)
 
@@ -160,7 +164,7 @@ def force_text_orient(topic):
         return topic.title()    
 
 def create_chip(section_list, chip_count=0):
-    
+    #  chip list of suggestion after summary
     sections = section_list
     
     chip_base = {
@@ -236,6 +240,7 @@ def create_see_more_button():
 def send_see_more():
     # put conditional that should be matching session
     # use redis cached topic to call see more summary
+    # see more - summary list [0]
     topic = rc.get("topic")
     summary = " ".join(send_summary(topic)[1])
     log.info('See more: %s', summary)
@@ -244,14 +249,13 @@ def send_see_more():
         "fulfillmentMessages": [
       {
         "text": {
-          "text": [ summary
+          "text": [ summary + "."
           ]}
       }
     ],
     "source" : 'webhook'
     }
     return payload
-
 
 def create_main_chips():
     sections = [str(sec) for sec in utterances.main_chips.keys()]
@@ -286,3 +290,76 @@ def create_main_chips():
 
     log.info('Main chips sent: %s', chip_base)
     return chip_base
+
+def send_section_chips():
+    # trimmed from select topics to independent trigger via see-topic follow-up
+    # generate dynamic chip
+    topic_str = rc.get("topic")
+
+    if topic_str is not None:
+        sections = get_sections(topic_str)
+
+    section_chip = create_chip(sections, 3)
+    log.info('Section chip: %s', section_chip)
+
+    payload = {
+        "fulfillmentMessages": [
+            section_chip
+    ],
+    "source" : 'webhook'
+    }
+    return payload
+
+def ask_back_menu():
+
+    payload = {
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+           "Would you like to go back to main menu?"
+          ]}
+      }
+    ],
+    "source" : 'webhook'
+    }
+    return payload
+
+def send_stay_topic():
+
+    payload = {
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+               random.choice(spiels.stay_topic_spiel)
+          ]}
+      }
+    ],
+    "source" : 'webhook'
+    }
+    return payload
+
+def suggest_topics(topic_list):
+    # multiple topics detected
+    # do not forget about count of chips
+    # FE
+    suggestion_chips = create_chip(topic_list, len(topic_list))
+    log.info('Suggestion chips: %s', suggestion_chips)
+    # BE
+
+    for topic in topic_list:
+        summary_list = send_summary(topic)
+        log.info("summary lists %s", summary_list)
+        
+    topic_list_str = " and ".join(topic_list)
+    payload = {
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+               (random.choice(spiels.suggest_topics_spiel)).replace("<topics>", topic_list_str)
+          ]}
+      },
+            suggestion_chips
+    ],
+    "source" : 'webhook'
+    }
+    return payload

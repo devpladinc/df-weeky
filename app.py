@@ -32,16 +32,24 @@ def webhook():
     
     if action == 'check.topic':
       params = params.get('topic')
-    if action == 'check.see.more':
+    elif action == 'checktopic.yes-getlist':
       params = ""
-    if action == 'check.data.science':
+    elif action == 'checktopic.no-askmenu':
+      params = ""
+    elif action == 'checktopic.no.yes.backmenu':
+      params = ""
+    elif action == 'checktopic.no.no-topicstay':
+      params = ""
+    elif action == 'check.see.more':
+      params = ""
+    elif action == 'check.data.science':
       params = ["Data science"]
-    if action == 'check.machine.learning':
+    elif action == 'check.machine.learning':
       params = ["Machine Learning"]
-    if action == 'check.programming':
+    elif action == 'check.programming':
       params = ["Programming language"]
     
-  
+  print("PARAMS SENT:", params)
   spiel =  handler.check_intent(action, params)
 
   return spiel
