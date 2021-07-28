@@ -15,6 +15,7 @@ def check_intent(action, params=''):
     # take query and get action key 
     intent_dict = {
         'input.welcome' : send_greetings,
+        'input.unknown' : send_fallback_greetings,
         'check.topic' : select_topic,
         'check.topic-yes' : send_section_chips,
         'check.topic-no' : ask_back_menu,
@@ -23,7 +24,14 @@ def check_intent(action, params=''):
         'check.see.more' : send_see_more,
         'check.data.science' : select_topic,
         'check.machine.learning' : select_topic,
-        'check.programming' : select_topic
+        'check.programming' : select_topic,
+        'check.ds-yes' : send_section_chips,
+        'check.ml-yes' : send_section_chips,
+        'check.pl-yes' : send_section_chips,
+        'check.ds-no' : ask_back_menu,
+        'check.ml-no' : ask_back_menu,
+        'check.pl-no' : ask_back_menu,
+
     }
     try:
         return intent_dict[action]()
@@ -48,6 +56,26 @@ def send_greetings():
     "source" : 'webhook'
     }
     return payload
+
+
+def send_fallback_greetings():
+    # create main chips
+    # create new session redis
+    main_chip = create_main_chips()
+
+    payload = {
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+           random.choice(spiels.greetings_fallback)
+          ]}
+      }
+      ,main_chip
+    ],
+    "source" : 'webhook'
+    }
+    return payload
+
 
 def select_topic(topic):
     
@@ -294,6 +322,7 @@ def create_main_chips():
 def send_section_chips():
     # trimmed from select topics to independent trigger via see-topic follow-up
     # generate dynamic chip
+    log.info('PASOK DITO SA follow up yes')
     topic_str = rc.get("topic")
 
     if topic_str is not None:

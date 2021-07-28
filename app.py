@@ -32,6 +32,8 @@ def webhook():
     
     if action == 'check.topic':
       params = params.get('topic')
+    elif action == 'input.unknown':
+      params = ""
     elif action == 'checktopic.yes-getlist':
       params = ""
     elif action == 'checktopic.no-askmenu':
@@ -41,6 +43,18 @@ def webhook():
     elif action == 'checktopic.no.no-topicstay':
       params = ""
     elif action == 'check.see.more':
+      params = ""
+    elif action == 'check.ds-yes':
+      params = ""
+    elif action == 'check.ml-yes':
+      params = ""
+    elif action == 'check.pl-yes':
+      params = ""
+    elif action == 'check.ds-no':
+      params = ""
+    elif action == 'check.ml-no':
+      params = ""
+    elif action == 'check.pl-no':
       params = ""
     elif action == 'check.data.science':
       params = ["Data science"]
