@@ -4,6 +4,7 @@ import sys
 import random
 import spiels
 import json
+import uuid
 import utterances
 from convo_template import payload
 from logs.utils import logging as log
@@ -15,6 +16,7 @@ def check_intent(action, params=''):
     # take query and get action key 
     intent_dict = {
         'input.welcome' : send_greetings,
+        'Default Welcome Intent' : send_greetings,
         'input.unknown' : send_fallback_greetings,
         'check.topic' : select_topic,
         'check.topic-yes' : send_section_chips,
@@ -33,15 +35,26 @@ def check_intent(action, params=''):
         'check.pl-no' : ask_back_menu,
 
     }
+    # function_count = rc.hget(user, 'function')
+
+    # intent_log = {"fuction executed" : "check_intent", "action" : action}
+    # rc.hmset(user, intent_log)
+
     try:
+        # return intent_dict[action](user)
         return intent_dict[action]()
     except Exception as e:
+        log.info('Intent error:', e)
+        # return intent_dict[action](user, params)
         return intent_dict[action](params)
         
 
 def send_greetings():
     # create main chips
-    # create new session redis
+    
+    # intent_log = {"greeting_fuction" : "send_greetings"}
+    # rc.hmset(user, intent_log)
+
     main_chip = create_main_chips()
 
     payload = {
@@ -94,6 +107,9 @@ def select_topic(topic):
         summary = send_summary(parsed_topic)
         # cache save topic
         rc.set("topic", parsed_topic)
+        # topic_cache = {"topic" : parsed_topic}
+        # rc.hmset(bot_user, topic_cache)
+
     else:
         try:
             summary = send_summary(topic_str.title())

@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template
+from redis import client
 from helpers import intent_handlers as handler
 from logs.utils import logging as log
 import redis
+import uuid
 
 app = Flask(__name__)
 redis_client = redis.Redis(host='127.0.0.1', port=6379, db=0)
@@ -10,10 +12,15 @@ redis_client = redis.Redis(host='127.0.0.1', port=6379, db=0)
 @app.route('/')
 def server_healthcheck():
     return render_template('df_messenger.html')
-
     
 @app.route('/webhook', methods=['POST'])
 def webhook():
+
+  # init bot user
+  # bot_user = str(uuid.uuid4())
+  # bot_init = {"init" : "true", "webhook" : "success"}
+  # redis_client.hmset(bot_user, bot_init)
+
   req = request.get_json(silent=True, force=True)
   query_response = req.get('queryResult')
   print("query response:", query_response)
@@ -33,6 +40,8 @@ def webhook():
     if action == 'check.topic':
       params = params.get('topic')
     elif action == 'input.unknown':
+      params = ""
+    elif action == 'Default Welcome Intent':
       params = ""
     elif action == 'checktopic.yes-getlist':
       params = ""
@@ -64,6 +73,8 @@ def webhook():
       params = ["Programming language"]
     
   print("PARAMS SENT:", params)
+  # print("BOT USER:", bot_user)
+  # spiel =  handler.check_intent(bot_user, action, params)
   spiel =  handler.check_intent(action, params)
 
   return spiel

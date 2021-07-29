@@ -16,3 +16,5 @@ GoogleNews==1.5.8
 gunicorn==20.1.0
 Wikipedia-API==0.5.4
 flask-redis==0.4.0
+flask-session==0.4.0
+typeshed-client==1.1.0
