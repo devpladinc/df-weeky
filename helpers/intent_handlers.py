@@ -33,6 +33,7 @@ def check_intent(action, params=''):
         'check.ds-no' : ask_back_menu,
         'check.ml-no' : ask_back_menu,
         'check.pl-no' : ask_back_menu,
+        'call.menu.handle' : send_greetings
 
     }
     # function_count = rc.hget(user, 'function')
@@ -224,7 +225,7 @@ def create_chip(section_list, chip_count=0):
             "event": {
                 "languageCode": "en-US",
                 "parameters": {},
-                "name": ""
+                "name": "MENU"
             },
             "icon": {
                 "color": "#f252ad",

@@ -65,6 +65,8 @@ def webhook():
       params = ""
     elif action == 'check.pl-no':
       params = ""
+    elif action == 'call.menu.handle':
+      params = ""
     elif action == 'check.data.science':
       params = ["Data science"]
     elif action == 'check.machine.learning':
