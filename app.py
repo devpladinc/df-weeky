@@ -27,7 +27,11 @@ def webhook():
 
   try:
     action = query_response.get('action')
-    spiel =  handler.check_intent(action)
+
+    if action == 'checktopic.yes-getlist.checktopic':
+      params = query_response.get('queryText')
+
+    spiel =  handler.check_intent(action, params)
     return spiel
   
   except Exception as e:

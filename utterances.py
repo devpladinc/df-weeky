@@ -33,3 +33,36 @@ main_chips = {
     "Machine Learning" : "ml-landing",
     "Programming" : "pl-landing"
 }
+
+
+dynamic_chips_1 = {
+    "Linear regression" : "lr-landing",
+    "Deep Learning" : "dl-learning",
+    "Logistics regression" : "logr-landing",
+}
+
+dynamic_chips_2 = {
+    "Python" : 'python-landing',
+    "Java" : "java-landing",
+    "Power BI" : "pb-landing"
+}
+
+dynamic_chips_3 = {
+    "Python" : 'python-landing',
+    "Deep Learning" : "dl-learning",
+    "Power BI" : "pb-landing"
+}
+
+dynamic_chips_4 = {
+    "Logistics regression" : "logr-landing",
+    "Deep Learning" : "dl-learning",
+    "Azure" : "az-landing"
+}
+
+# always update if adding dynamic chip dict above
+dynamic_chips = [
+    dynamic_chips_1,
+    dynamic_chips_2,
+    dynamic_chips_3,
+    dynamic_chips_4
+]

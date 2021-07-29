@@ -1,3 +1,4 @@
+from re import L
 from flask import Flask, request, render_template
 import os
 import sys
@@ -33,7 +34,8 @@ def check_intent(action, params=''):
         'check.ds-no' : ask_back_menu,
         'check.ml-no' : ask_back_menu,
         'check.pl-no' : ask_back_menu,
-        'call.menu.handle' : send_greetings
+        'call.menu.handle' : send_greetings,
+        'checktopic.yes-getlist.checktopic' : get_sections_details
 
     }
     # function_count = rc.hget(user, 'function')
@@ -197,10 +199,50 @@ def get_sections(topic):
                 break
             else:
                 section_list.append(section.title)
+        log.info('Added sections list: %s', section_list)
+
         return section_list
     except Exception as e:
         log.info('Unable to fetch sections: %s', e)
         # error handling here
+
+
+def get_sections_details(query):
+    topic_str = rc.get('topic')
+    
+    wiki_bot = wiki('en')
+    page = wiki_bot.page(topic_str)
+    
+    try:
+        sections = page.sections
+        section_content = {section.title:section.text for section in sections if section.title not in utterances.exclude_sections}
+        query_prop = query.title()
+        # log.info('query prop: %s %s', query_prop, type(query_prop) )
+        # log.info('%s', section_content.keys())
+
+        if query_prop in section_content.keys():
+            # log.info('matched content:', section_content.get(query_prop))
+            content = section_content.get(query_prop)
+        else:
+            content = section_content.get(str(query))
+
+    except Exception as e:
+        log.info('Unable to fetch sections: %s', e)
+        # error handling here
+
+    
+    # pop specific index in the section_content_list 
+    payload = {
+        "fulfillmentMessages": [{
+        "text": {
+          "text": [
+               str(content)
+          ]}
+      },
+    ],
+    "source" : 'webhook'
+    }
+    return payload
 
 def force_text_orient(topic):                                                          
     if topic in utterances.force_match:
@@ -302,9 +344,20 @@ def send_see_more():
     }
     return payload
 
+
 def create_main_chips():
     sections = [str(sec) for sec in utterances.main_chips.keys()]
     section_actions = [str(sec) for sec in utterances.main_chips.values()]
+    
+    # randomizer
+    random_chip = random.choice(utterances.dynamic_chips)
+    log.info('random chip %s', random_chip)
+
+    opt_section = [str(sec) for sec in random_chip.keys()]
+    opt_sections_actions = [str(sec) for sec in random_chip.values()]
+
+    combined_sections = sections + opt_section
+    combined_sections_actions = section_actions + opt_sections_actions
 
     chip_base = {
         "payload" :{
@@ -315,14 +368,14 @@ def create_main_chips():
     }
     
     ctr = 0
-    for ctr in range(len(sections)):
+    for ctr in range(len(combined_sections)):
         chip_payload = {
-            "text": sections[ctr],
+            "text": combined_sections[ctr],
             "type": "button",
             "event": {
                 "languageCode": "en-US",
                 "parameters": {},
-                "name": section_actions[ctr]
+                "name": combined_sections_actions[ctr]
             },
             "icon": {
                 "color": "#f252ad",
@@ -339,7 +392,6 @@ def create_main_chips():
 def send_section_chips():
     # trimmed from select topics to independent trigger via see-topic follow-up
     # generate dynamic chip
-    log.info('PASOK DITO SA follow up yes')
     topic_str = rc.get("topic")
 
     if topic_str is not None:
